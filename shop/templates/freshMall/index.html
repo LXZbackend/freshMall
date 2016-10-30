@@ -12,6 +12,19 @@
 
 	<script type="text/javascript" src="{%static 'freshMall/js/jquery-ui.min.js'%}"></script>
 	<script type="text/javascript" src="{%static 'freshMall/js/slide.js'%}"></script>
+
+
+	<script type="text/javascript">
+		
+	$(function(){
+		$('#subnav li:eq(2)').css('color','red')
+
+
+	});
+
+
+
+	</script>
 </head>
 <body>
 	<div class="header_con">
@@ -65,12 +78,19 @@
 
 	<div class="center_con clearfix">
 		<ul class="subnav fl">
-			<li><a href="#model01" class="fruit">新鲜水果</a></li>
+		 {%for shop in  firstclass%}
+		 	<!-- <li>{{shop.className}}</li> -->
+
+<li><a href="#model0{{shop.id}}" class="fruit">{{shop.className}}</a></li>
+
+
+		 	{%endfor%}
+		<!-- 	<li><a href="#model01" class="fruit">新鲜水果</a></li>
 			<li><a href="#model02" class="seafood">海鲜水产</a></li>
 			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
 			<li><a href="#model04" class="egg">禽类蛋品</a></li>
 			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
-			<li><a href="#model06" class="ice">速冻食品</a></li>
+			<li><a href="#model06" class="ice">速冻食品</a></li> -->
 		</ul>
 		<div class="slide fl">
 			<ul class="slide_pics">
@@ -105,7 +125,16 @@
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="{%static 'freshMall/images/banner01.jpg'%}"></div>
 			<ul class="goods_list fl">
+			
+			{%for fruit in fruitlist%}
 				<li>
+					<h4><a href="#">{{fruit.goodsName}}</a></h4>
+					<a href="#"><img src="{%static '{{fruit.goodsRoute}}'%}"></a>
+					<div class="prize">¥ {{fruit.goodsPrice}}</div>
+				</li>
+			{%endfor%}
+
+				<!-- <li>
 					<h4><a href="#">草莓</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods/goods003.jpg'%}"></a>
 					<div class="prize">¥ 30.00</div>
@@ -124,7 +153,7 @@
 					<h4><a href="#">奇异果</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods/goods012.jpg'%}"></a>
 					<div class="prize">¥ 25.80</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>
@@ -143,7 +172,19 @@
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="{%static 'freshMall/images/banner02.jpg'%}"></div>
 			<ul class="goods_list fl">
+			{%for seafood in seafoodlist%}
 				<li>
+					<h4><a href="#">{{seafood.goodsName}}</a></h4>
+					<a href="#"><img src="{%static '{{seafood.goodsRoute}}'%}"></a>
+					<div class="prize">¥ {{seafood.goodsPrice}}</div>
+				</li>
+			{%endfor%}
+	
+
+
+
+
+			<!-- 	<li>
 					<h4><a href="#">青岛野生海捕大青虾</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods/goods018.jpg'%}"></a>
 					<div class="prize">¥ 48.00</div>
@@ -162,7 +203,7 @@
 					<h4><a href="#">基围虾</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods/goods021.jpg'%}"></a>
 					<div class="prize">¥ 25.00</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>
@@ -182,7 +223,26 @@
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="{%static 'freshMall/images/banner03.jpg'%}"></div>
 			<ul class="goods_list fl">
+			{%for meat in meatlist%}
 				<li>
+					<h4><a href="#">{{meat.goodsName}}</a></h4>
+					<a href="#"><img src="{%static '{{meat.goodsRoute}}'%}"></a>
+					<div class="prize">¥ {{meat.goodsPrice}}</div>
+				</li>
+			{%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+
+				<!-- <li>
 					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods.jpg'%}"></a>
 					<div class="prize">¥ 38.00</div>
@@ -201,7 +261,7 @@
 					<h4><a href="#">维多利亚葡萄</a></h4>
 					<a href="#"><img src="{%static 'freshMall/images/goods.jpg'%}"></a>
 					<div class="prize">¥ 38.00</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>

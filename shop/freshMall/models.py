@@ -13,7 +13,8 @@ class userInfo(models.Model):
 	email= models.CharField(max_length=30)
 	isDelete = models.BooleanField(default = False)
 
-
+	def __str__(self):
+		return self.account.encode('utf-8')
 class consignee(models.Model):
 	'''
 		收件人的表
@@ -36,6 +37,9 @@ class consignee(models.Model):
 class goodsClass(models.Model):
 	#id自增
 	className = models.CharField(max_length=20)#类名
+	def __str__(self):
+		return self.className.encode('utf-8')
+
 
 class goodsList(models.Model):
 	#id自增
@@ -46,7 +50,8 @@ class goodsList(models.Model):
 	goodsPrice = models.DecimalField(max_digits=6,decimal_places=2)#商品价格
 	goodsType = models.ForeignKey('goodsClass')#商品父类
 
-
+	def __str__(self):
+		return self.goodsName.encode('utf-8')
 
 # 购物车
 class shoppingCart(models.Model):
@@ -68,7 +73,8 @@ class orderForm(models.Model):
 	#用户id外键指向用户表的主键
 	userId = models.ForeignKey('userInfo')
 
-
+	def __str__(self):
+		return self.id.encode('utf-8')
 
 # 订单详情表：
 # 商品id	goodsId
