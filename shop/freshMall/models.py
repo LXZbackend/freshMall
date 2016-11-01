@@ -1,107 +1,109 @@
-#coding=utf-8
-from django.db import models
+# coding=utf-8
 
-# Create your models here.
-class userInfo(models.Model):
+from django.db import models
+from datetime import datetime
+from tinymce.models import HTMLField
+
+
+class UserInfo(models.Model):
 	'''
-		用户个人信息的表
+		用户个人信息表
 	'''
 	account = models.CharField(max_length=20)
 	passswd = models.CharField(max_length=20)
-	name = models.CharField(max_length=20)
-	telephone = models.CharField(max_length=11)
+	# name = models.CharField(max_length=20,defaultkj udvb k)
+	# telephone = models.CharField(max_length=11)
 	email= models.CharField(max_length=30)
 	isDelete = models.BooleanField(default = False)
 
-	def __str__(self):
-		return self.account.encode('utf-8')
-class consignee(models.Model):
+
+class Consignee(models.Model):
 	'''
-		收件人的表
+		收件人地址信息表
 	'''
 	# 收货人姓名
 	recePerName = models.CharField(max_length=20)
 	# 收货人电话
-	recrPerTel = models.CharField(max_length=11)
+	recePerTel = models.CharField(max_length=11)
 	# 收货人地址
 	addr = models.CharField(max_length=1000)
 	# 邮编
-	postcode = models.IntegerField(default=0)
+	postCode = models.IntegerField(default=0)
 	# 设置逻辑删除
 	isDelete = models.BooleanField(default=False)
 	# 设置外键，确认每条信息是那个用户的表 用户的主键编号
-	userNum = models.ForeignKey('userInfo')
+	userNum = models.ForeignKey('UserInfo')
 	
 
-
-class goodsClass(models.Model):
+# 商品类表
+class GoodsClass(models.Model):
 	#id自增
 	className = models.CharField(max_length=20)#类名
+
 	def __str__(self):
 		return self.className.encode('utf-8')
 
-
-class goodsList(models.Model):
+# 商品表
+class GoodsList(models.Model):
 	#id自增
 	goodsName = models.CharField(max_length=50)#商品名
-	goodsDetail=models.CharField(max_length=1000)#商品详情描述
-	goodsRoute = models.CharField(max_length=50)#商品图片路径
-	goodsStock = models.CharField(max_length=50)#商品库存
+	goodsResume=models.CharField(max_length=80)	#商品摘要
+	goodsDetail=HTMLField()#商品详情描述
+	goodsRoute = models.ImageField(upload_to='uploads/')#商品图片路径
+	goodsStock = models.CharField(max_length=50)#商品库存信息
 	goodsPrice = models.DecimalField(max_digits=6,decimal_places=2)#商品价格
-	goodsType = models.ForeignKey('goodsClass')#商品父类
+	goodsType = models.ForeignKey('GoodsClass')#商品父类
+	buyTimes = models.IntegerField() #商品购买次数（人气）
+	goodsUnit = models.CharField(max_length=20)	# 商品规格
+	goodsPubdate = models.DateTimeField()	#商品发布时间
+	
 
-	def __str__(self):
-		return self.goodsName.encode('utf-8')
+
 
 # 购物车
-class shoppingCart(models.Model):
+class ShoppingCart(models.Model):
 
-    goodsId = models.ForeignKey('goodsList')#商品id
+    goodsId = models.ForeignKey('GoodsList')#商品id
 
-    userInfo = models.ForeignKey('userInfo')#用户id
+    userId = models.ForeignKey('UserInfo')#用户id
 
-    amount = models.IntegerField()#数量
+    c = models.IntegerField()#数量
 
     total = models.FloatField()#小计
+
+    isDelete = models.BooleanField(default=False)	#是否删除
 
 
 
 # 订单表
-class orderForm(models.Model):
+class OrderForm(models.Model):
     #订单时间
 	orderDate = models.DateTimeField()
 	#用户id外键指向用户表的主键
-	userId = models.ForeignKey('userInfo')
-
-	def __str__(self):
-		return self.id.encode('utf-8')
-
-# 订单详情表：
-# 商品id	goodsId
-# 商品价格	goodsPrice
-# 商品数量	goodsCount
-# 订单金额：	orderSum
-# 订单编号:	orderId
-
-'''订单详情表
-'''
-class orderDetail(models.Model):
-	# 外键商品id
-	goodsId = models.ForeignKey('goodsList')
-	orderId = models.ForeignKey('orderForm')
-
+	userId = models.ForeignKey('UserInfo')
 	#订单编号 自己写规则生成
-	orderId = models.IntegerField()
+	orderNum= models.IntegerField()
+
+
+class OrderDetail(models.Model):
+	'''订单详情表
+	'''
+	# 外键商品id
+	goodsId = models.ForeignKey('GoodsList')
+	# 订单idX
+	orderId = models.ForeignKey('OrderForm')
+	
 	# 数量
 	goodsCount =models.IntegerField()
 	# 总金额
 	orderSum = models.DecimalField(max_digits=6, decimal_places=2)
-	#是否付款 订单状态
+	# 用户id
+	# userId = models.ForeignKey('UserInfo')
+	#是否付款 (订单状态)
 	isPay = models.BooleanField()
 	def orderStatus(self):
 		if self.isPay:
 			return "已付款"
 		else:
-			return "待付款"
+			return "未付款"
 		orderStatus.short_description = "订单状态"
-

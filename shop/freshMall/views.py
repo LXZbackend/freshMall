@@ -1,60 +1,130 @@
-#coding=utf-8
-from django.shortcuts import render
+# coding=utf-8
+from django.shortcuts import render, redirect
+from django.http import *
 from models import *
 # Create your views here.
 
 
 def index(request):
-	# 获取到所有的分类
-	shopclass = goodsClass.objects.all()
 
-	'''
-	第一种想法是 找到向关联的表中的1对多中的1 ，通过分类找所以的商品
-	但是这个在shell 下不报错 在这里报错
-	获取到商品第一级分类
-	获取一个商品类型下 id 为1 的对象
-	shopclass =  goodsClass.objects.get(pk=1)
-	通过这个找下面的所有的子 ，通过1 找多
-	fruitlist = shopclass.goodslist_set.all()
-	获取到所以商品列表  这时候显示的是所有的商品，需要进行赛选
-	goodslist = goodsList.objects.all()
-	'''
-	# 第一种思路报错 只能通过遍历所有商品找出对应类别，存到一个列表中
-	fruitlist = goodsList.objects.filter(goodsType=1)
-	seafoodlist = goodsList.objects.filter(goodsType=2)
-	meatlist = goodsList.objects.filter(goodsType=3)
-	# fruitlist = goodsList.objects.filter(goodsType=1)
-	print fruitlist,seafoodlist,meatlist
+    loginname = request.session.get("name")
+    print '这是session', loginname
+
+    fruitlist = GoodsList.objects.filter(goodsType=1)
+
+  
+    print '这是类型',type(loginname)
+
+    dic = {
+
+        'fruitlist': fruitlist,
+        # 'seafoodlist':seafoodlist,
+        'user_name': loginname
+        # 'meatlist':meatlist
 
 
+    }
 
-	dic={
-	'firstclass':shopclass,
-	'fruitlist':fruitlist,
-	'seafoodlist':seafoodlist,
-	'meatlist':meatlist
+    return render(request, 'freshMall/index.html', dic)
 
 
-	}
+def rejisrHandle(request):
+	# 注册的方法
+    per = UserInfo()
+    print request.method
+    per.account = request.POST['user_name']
+    print '这是名字', per.account
+    per.passswd = request.POST["pwd"]
+    per.email = request.POST["email"]
+    per.save()
+
+    return redirect('/')
 
 
-	print shopclass
+def loginHandle(request):
+	# 登录验证
+    receName = request.POST['uname']
+    recePwd = request.POST['pwd']
+    per = UserInfo.objects.get(account=receName)
+
+    print per.passswd
+    if per:
+        if per.passswd == recePwd:
+            # 如果登录成功  就把session 存到数据库
+            request.session['name'] = receName
+            # return render(request, 'freshMall/index.html')
+            return redirect('/index/')
+
+        else:
+            return render(request, 'freshMall/register.html')
+    # return render(request, 'freshMall/login.html')
+
+def loginout(request):
+	# 这是推出登录
+
+	#del request.session['name']  #这是删除这个特定的
+    # request.session.clear()
+    request.session.flush()
+    return redirect('/index/')
 
 
-	return render(request, 'freshMall/index.html',dic)
+
 
 
 def login(request):
-	return render(request, 'freshMall/login.html')
+    return render(request, 'freshMall/login.html')
+
+
+def testform(request):
+
+    nameflag = False 
+    testname = request.POST['name']
+    # testemail = request.POST['email']
+    print testname
+
+    personlist = UserInfo.objects.all()
+    for info in personlist:
+        if info.account == testname:
+            print info.account
+            nameflag = True
+    data = {'name': nameflag}
+    return JsonResponse(data)
+
+
+def detail(request, shopId):
+    shopinfo = GoodsList.objects.get(pk=shopId)
+
+    dic = {
+
+        'shopinfo': shopinfo,
+
+    }
+
+    return render(request, 'freshMall/detail.html', dic)
 
 
 def cart(request):
-	return render(request, 'freshMall/cart.html')
+    return render(request, 'freshMall/cart.html')
 
 
 def user_center_order(request):
-	return render(request, 'freshMall/user_center_order.html')
+    return render(request, 'freshMall/user_center_order.html')
 
 
 def register(request):
-	return render(request, 'freshMall/register.html')
+    return render(request, 'freshMall/register.html')
+
+
+def user_center_info(request):
+    return render(request, 'freshMall/user_center_info.html')
+
+
+def search(request):
+    searchContent = request.GET('search')
+    print searchContent
+
+    return render(request, 'freshMall/cart.html')
+
+
+def list(request):
+    return render(request, 'freshMall/list.html')

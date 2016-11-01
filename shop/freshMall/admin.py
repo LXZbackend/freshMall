@@ -5,13 +5,13 @@ from models import *
 
 
 class userInfoAdmin(admin.ModelAdmin):
-    list_display = ['account', 'passswd',
-                    'name', 'telephone', 'email', 'isDelete']
+    list_display = ['account', 'passswd'
+                    ,'email', 'isDelete']
 
 
 class consigneeAdmin(admin.ModelAdmin):
-    list_display = ['recePerName', 'recrPerTel',
-                    'addr', 'postcode', 'isDelete', 'userNum']
+    list_display = ['recePerName', 'recePerTel',
+                    'addr', 'postCode', 'isDelete', 'userNum']
 
 
 class goodsClassAdmin(admin.ModelAdmin):
@@ -24,7 +24,7 @@ class goodsListAdmin(admin.ModelAdmin):
 
 
 class shoppingCartAdmin(admin.ModelAdmin):
-    list_display = ['goodsId', 'userInfo', 'amount', 'total']
+    list_display = ['goodsId', 'userId', 'userId', 'total']
 
 
 class orderFormAdmin(admin.ModelAdmin):
@@ -36,10 +36,10 @@ class orderDetailAdmin(admin.ModelAdmin):
                     'goodsCount', 'orderSum', 'orderStatus']
 
 
-admin.site.register(userInfo, userInfoAdmin)
-admin.site.register(consignee, consigneeAdmin)
-admin.site.register(goodsClass, goodsClassAdmin)
-admin.site.register(goodsList, goodsListAdmin)
-admin.site.register(shoppingCart, shoppingCartAdmin)
-admin.site.register(orderForm, orderFormAdmin)
-admin.site.register(orderDetail, orderDetailAdmin)
+admin.site.register(UserInfo, userInfoAdmin)
+admin.site.register(Consignee, consigneeAdmin)
+admin.site.register(GoodsClass, goodsClassAdmin)
+admin.site.register(GoodsList, goodsListAdmin)
+admin.site.register(ShoppingCart, shoppingCartAdmin)
+admin.site.register(OrderForm, orderFormAdmin)
+admin.site.register(OrderDetail, orderDetailAdmin)

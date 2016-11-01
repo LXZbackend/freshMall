@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import tinymce.models
 
 
 class Migration(migrations.Migration):
@@ -11,87 +12,95 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='consignee',
+            name='Consignee',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('recePerName', models.CharField(max_length=20)),
-                ('recrPerTel', models.CharField(max_length=11)),
+                ('recePerTel', models.CharField(max_length=11)),
                 ('addr', models.CharField(max_length=1000)),
-                ('postcode', models.IntegerField(default=0)),
+                ('postCode', models.IntegerField(default=0)),
                 ('isDelete', models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
-            name='goodsClass',
+            name='GoodsClass',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('className', models.CharField(max_length=20)),
             ],
         ),
         migrations.CreateModel(
-            name='goodsList',
+            name='GoodsList',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('goodsName', models.CharField(max_length=50)),
-                ('goodsDetail', models.CharField(max_length=1000)),
-                ('goodsRoute', models.CharField(max_length=50)),
+                ('goodsResume', models.CharField(max_length=80)),
+                ('goodsDetail', tinymce.models.HTMLField()),
+                ('goodsRoute', models.ImageField(upload_to=b'uploads/')),
                 ('goodsStock', models.CharField(max_length=50)),
                 ('goodsPrice', models.DecimalField(max_digits=6, decimal_places=2)),
-                ('goodsType', models.ForeignKey(to='freshMall.goodsClass')),
+                ('buyTimes', models.IntegerField()),
+                ('goodsUnit', models.CharField(max_length=20)),
+                ('goodsPubdate', models.DateTimeField()),
+                ('goodsType', models.ForeignKey(to='freshMall.GoodsClass')),
             ],
         ),
         migrations.CreateModel(
-            name='orderDetail',
+            name='OrderDetail',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('orderId', models.IntegerField()),
                 ('goodsCount', models.IntegerField()),
                 ('orderSum', models.DecimalField(max_digits=6, decimal_places=2)),
                 ('isPay', models.BooleanField()),
-                ('goodsId', models.ForeignKey(to='freshMall.goodsList')),
+                ('goodsId', models.ForeignKey(to='freshMall.GoodsList')),
             ],
         ),
         migrations.CreateModel(
-            name='orderForm',
+            name='OrderForm',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('orderDate', models.DateTimeField()),
+                ('orderNum', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='shoppingCart',
+            name='ShoppingCart',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('amount', models.IntegerField()),
+                ('c', models.IntegerField()),
                 ('total', models.FloatField()),
-                ('goodsId', models.ForeignKey(to='freshMall.goodsList')),
+                ('isDelete', models.BooleanField(default=False)),
+                ('goodsId', models.ForeignKey(to='freshMall.GoodsList')),
             ],
         ),
         migrations.CreateModel(
-            name='userInfo',
+            name='UserInfo',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('account', models.CharField(max_length=20)),
                 ('passswd', models.CharField(max_length=20)),
-                ('name', models.CharField(max_length=20)),
-                ('telephone', models.CharField(max_length=11)),
                 ('email', models.CharField(max_length=30)),
                 ('isDelete', models.BooleanField(default=False)),
             ],
         ),
         migrations.AddField(
             model_name='shoppingcart',
-            name='userInfo',
-            field=models.ForeignKey(to='freshMall.userInfo'),
+            name='userId',
+            field=models.ForeignKey(to='freshMall.UserInfo'),
         ),
         migrations.AddField(
             model_name='orderform',
             name='userId',
-            field=models.ForeignKey(to='freshMall.userInfo'),
+            field=models.ForeignKey(to='freshMall.UserInfo'),
+        ),
+        migrations.AddField(
+            model_name='orderdetail',
+            name='orderId',
+            field=models.ForeignKey(to='freshMall.OrderForm'),
         ),
         migrations.AddField(
             model_name='consignee',
             name='userNum',
-            field=models.ForeignKey(to='freshMall.userInfo'),
+            field=models.ForeignKey(to='freshMall.UserInfo'),
         ),
     ]

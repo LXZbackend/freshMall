@@ -1,0 +1,31 @@
+{%extends "freshMall/base.html"%}
+{%load static from staticfiles%}
+<!-- 这是base 的开始 -->
+{%block content%}
+
+<div class="search_bar clearfix">
+		<a href="index.html" class="logo fl"><img src="{%static 'freshMall/images/logo.png'%}"></a>
+		<div class="search_con fl">
+			<form action='/search/' method='GET'>
+			<input type="text" class="input_text fl" name="search" placeholder="搜索商品">
+			<input type="submit" class="input_btn fr" name="" value="搜索">
+			</form>
+		</div>
+		<div class="guest_cart fr">
+			<a href="#" class="cart_name fl">我的购物车</a>
+			<div class="goods_count fl" id="show_count">1</div>
+		</div>
+	</div>
+	
+
+{%block maincontent%}
+
+
+
+
+
+		
+{%endblock maincontent%}
+
+
+{%endblock content%}

@@ -40,17 +40,42 @@ $(function(){
 
 	function check_user_name(){
 		var len = $('#user_name').val().length;
-		if(len<5||len>20)
+// $.post('/testform/',{'name':$('#user_name').val()},function(data){	
+// 			// if (data.name==false){
+// 			// 	$uername.next('span').text('这个用户名可以使用')
+// 			// }
+
+
+
+		if(len>5&&len<20)
 		{
-			$('#user_name').next().html('请输入5-20个字符的用户名')
+			// 这是验证用户是否存在
+		$.post('/testform/',{'name':$('#user_name').val()},function(data){
+
+		if (data.name==false){
+				$uername.next('span').text('这个用户名可以使用')
+				error_name = false;
+				// $uername.next('span').css('color','green')
+		}
+		else {
+			$uername.next('span').text('这个用户名已经被占用了')
+				error_name = true;
+		}
+
+		});
+
 			$('#user_name').next().show();
+		
+		}
+
+
+		else
+		{	$('#user_name').next().html('请输入5-20个字符的用户名')
+			// $('#user_name').next().hide();
 			error_name = true;
 		}
-		else
-		{
-			$('#user_name').next().hide();
-			error_name = false;
-		}
+
+
 	}
 
 	function check_pwd(){

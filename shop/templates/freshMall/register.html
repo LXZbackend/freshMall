@@ -3,15 +3,56 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>天天生鲜-注册</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="js/register.js"></script>
+	{%load static from staticfiles%}
+	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/reset.css'%}">
+	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/main.css'%}">
+	<script type="text/javascript" src="{%static 'freshMall/js/jquery-1.12.4.min.js'%}"></script>
+	<script type="text/javascript" src="{%static 'freshMall/js/register.js'%}"></script>
 </head>
+
+
+<!-- $.post("test.php", { name: "John", time: "2pm" },
+   function(data){
+     alert("Data Loaded: " + data);
+   }); -->
+	<script type="text/javascript">
+		$(function(){
+			$uername = $("#user_name")
+			// $uername.focusout(function(){
+			// 	// 这是一个异步请求
+			// $.post('/testform/',{'name':$('#user_name').val()},function(data){	
+			// if (data.name==false){
+			// 	$uername.next('span').text('这个用户名可以使用')
+			// }
+
+
+					
+				
+			// })
+
+
+
+
+			// });
+
+
+		});
+
+
+
+
+
+
+	</script>
+	
+
+
+
+
 <body>
 	<div class="register_con">
 		<div class="l_con fl">
-			<a class="reg_logo"><img src="images/logo02.png"></a>
+			<a class="reg_logo"><img src="{%static 'freshMall/images/logo02.png'%}"></a>
 			<div class="reg_slogan">足不出户  ·  新鲜每一天</div>
 			<div class="reg_banner"></div>
 		</div>
@@ -19,10 +60,10 @@
 		<div class="r_con fr">
 			<div class="reg_title clearfix">
 				<h1>用户注册</h1>
-				<a href="#">登录</a>
+				<a href="/login/">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form>
+				<form method='POST' action="/rejisrHandle/">
 				<ul>
 					<li>
 						<label>用户名:</label>
