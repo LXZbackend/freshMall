@@ -6,10 +6,14 @@
 	<title>天天生鲜-首页</title>
 	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/reset.css'%}">
 	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/main.css'%}">
-	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/slide.js"></script>
-</head>
+	<script type="text/javascript" src="{%static  'freshMall/js/jquery-1.12.4.min.js'%}"></script>
+	<script type="text/javascript" src="{%static 'freshMall/js/jquery-ui.min.js'%}"></script>
+	<script type="text/javascript" src="{%static 'freshMall/js/slide.js'%}"></script>
+	<script type="text/javascript" src="{%static 'freshMall/js/register.js'%}"></script>
+	<!-- <script type="text/javascript" src="{%static 'freshMall/js/cart.js'%}"></script> -->
+	<!-- <script type="text/javascript" src="{%static 'freshMall/js/cart2.js'%}"></script> -->
+
+	</head>
 <body>
 	<div class="header_con">
 		<div class="header">
@@ -66,22 +70,5 @@
 		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
 	</div>
-	<script type="text/javascript" src="js/slideshow.js"></script>
-	<script type="text/javascript">
-		BCSlideshow('focuspic');
-		var oFruit = document.getElementById('fruit_more');
-		var oShownum = document.getElementById('show_count');
-
-		var hasorder = localStorage.getItem('order_finish');
-
-		if(hasorder)
-		{
-			oShownum.innerHTML = '2';
-		}
-
-		oFruit.onclick = function(){
-			window.location.href = 'list.html';
-		}
-	</script>
 </body>
 </html>

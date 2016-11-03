@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>购物车</title>
+<style>
+*{
+margin: 0;
+padding: 0;
+}
+.box{
+width: 90%;
+margin: 0 auto;
+border: 1px #000 solid;
+border-collapse: collapse;
+}
+.list{
+width: 100%;
+border: 1px #000 solid;
+border-collapse: collapse;  
+}
+.box td,.box tr{
+border: 1px #000 solid;
+
+}
+.list td,.list tr{
+border: 1px #000 solid;
+}
+table tr{
+height: 40px;
+text-align: center;
+}
+.box tr:nth-child(1){
+height: 40px;
+}
+[type="button"]{
+border: none;
+background: red;
+height: 40px;
+width: 100px;
+color: #fff;
+font-size: 20px;
+}
+.list tr td:nth-child(1){
+width: 234px;
+}
+.list tr td:nth-child(2){
+width: 322px;
+}
+</style>
+</head>
+<body>
+<table class="box">
+<tr>
+<td>全部商品<span>0</span></td>
+<td class="sort"><input type="button" value="价格排序⬆️"/></td>
+<td colspan="4">配送至：<i>北京市</i></td>
+</tr>
+<tr>
+<td class="all"><input type="checkbox"/>全选</td>
+<td>商品</td>
+<td>单价（元）</td>
+<td>数量</td>
+<td>小计（元）</td>
+<td>操作</td>
+</tr>
+<tr>
+<td colspan="6">
+<table class="list">
+<tr>
+<td class="pitch"><input type="checkbox"/></td>
+<td>樱桃（Cherry）MX Board 6.0 G80-3930背光机械键盘 黑色</td>
+<td class="price">1299.00</td>
+<td>
+<div class="quantity">
+<span class="num_up">+</span>
+<var class="num">1</var>
+<span class="num_down">-</span>
+</div>
+</td>
+<td class="total">1299.00</td>
+<td class="remove">
+<a href="javascript:void(0)">删除</a>
+</td>
+</tr>
+<tr>
+<td class="pitch"><input type="checkbox"/></td>
+<td>闪迪(SanDisk) Z410系列 240G 固态硬盘</td>
+<td class="price">499.00</td>
+<td>
+<div class="quantity">
+<span class="num_up">+</span>
+<var class="num">1</var>
+<span class="num_down">-</span>
+</div>
+</td>
+<td class="total">499.00</td>
+<td class="remove">
+<a href="javascript:void(0)">删除</a>
+</td>
+</tr>   
+</table>
+</td>
+</tr>
+<tr>
+<td class="picths_num">已选择<span>0</span>件</td>
+<td colspan="5">总价<span class="priceAll">0.00</span></td>
+</tr>
+</table>
+</body>
+<script>//1.全选按钮 点击｛
+    // 1.选中所有宝贝，如果所有宝贝为选中状态，则变为不选中
+    // 2.已选中宝贝数量发生改变
+    // 3.总价发生改变
+    // ｝
+    //2.排序 按钮点击｛
+    // 默认，宝贝列表，价格从⬆️到⬇️排序
+    // 然后从⬇️到⬆️排序   
+    // ｝ 
+    //3.宝贝按钮选中框 点击｛
+    // 1.没有选中状态，变为选中状态
+    // 2.有选中状态，变为没选中状态
+    // 3.计算数量＊单价
+    // 4.总价发生改变
+    // 5.已选中宝贝数量发生改变；
+    // ｝ 
+    // 4.宝贝数量按钮 点击｛
+    // 1.按＋ 则数量＋1
+    // 2.按－ 则数量－1
+    // 3.为0的时候，删除当前宝贝
+    // 4.小计发生改变
+    // 5.选中框发生改变
+    // 6.总价发生改变
+    // 7.已选中宝贝发生改变
+    // ｝
+    // 5.删除 按钮 点击｛
+    // 1.删除当前宝贝的列表项
+    // 2.总价发生改变
+    // 3.已选宝贝发生改变
+    // ｝
+    // data 数据
+    var data = {
+        to: "上海",
+        list: [{
+            name: "樱桃（Cherry）MX Board 6.0 G80-3930背光机械键盘 黑色",
+            num: 1,
+            price: 1299.00
+        },
+        {
+            name: "闪迪(SanDisk) Z410系列 240G 固态硬盘",
+            num: 1,
+            price: 499.00,
+        }]
+    };
+
+    // 全选按钮
+    var allBtn = document.querySelector(".all input");
+
+    // 排序按钮
+    var sort = document.querySelector(".sort input");
+
+    // 宝贝选中按钮 
+    var pitchs = document.querySelectorAll(".list .pitch input");
+
+    // 宝贝数量加按钮
+    var num_up = document.querySelectorAll(".list .num_up");
+
+    // 宝贝数量减按钮
+    var num_down = document.querySelectorAll(".list .num_down");
+
+    // 宝贝数量
+    var num = document.querySelectorAll(".list .num");
+
+    // 小计
+    var total = document.querySelectorAll(".list .total");
+
+    // 删除按钮
+    var remove = document.querySelectorAll(".list .remove");
+
+    // 单价
+    var price = document.querySelectorAll(".list .price");
+
+    // 全选按钮状态开关
+    var allBtn_on = true;
+
+    // 增加按钮的数量纪录;
+    var addNum = 0;
+
+    // 减少按钮的数量纪录;
+    var minNum = 0;
+
+    // 总价
+    var priceAll = document.querySelector(".priceAll");
+
+    var allPrice = 0;
+
+    // 行数
+    var tr = document.querySelectorAll(".list tr");
+
+    // 已选中宝贝的数量
+    var picths_num = document.querySelector(".picths_num span");
+
+    // 宝贝数量的长度
+    var length = pitchs.length;
+
+
+
+
+// 因为页面一旦加载完成就触发onload事件,而onclick事件触发之前,for(var i= 0,len = oLis.length;i<len;i++)这个循环已经运行完成了!oLis[i].onclick = function()这段代码只是挂在那里(挂这个词不怎么准确,意思放在那里,等待onclick事件触发),这时候的i=3.在oLis[i].onclick = function()之前document.writeln(i)你会发现输出012,说明循环已经完成.
+// oLis[i].index = i 的作用只是在循环的过程中绑定下标i(0 1 2)到oLis数组相应元素oLis[0] oLis[1] oLis[2]的index变量上(例如oLis[0].index = 0;oLis[1] =1;oLis[2]=2),
+// 当onclick事件触发的时候,this.className中的this就是当前鼠标所在的元素(例如家居), 同时oDivs[this.index]会获取到家居所对应的oLis数组中的index值(这里是1,因为我们已经在完成的循环中将oLis[1]=1了),而如果换成oLis[i]则因为i永远=3,所以oLis[i]===oLis[3],当然会出错了!建议好好看一下JS的闭包原理和事件机制
+
+
+
+    for (var i = 0; i < length; i++) {//这是给每一行循环的添加监听事件
+        pitchs[i].index = i;
+        num_up[i].index = i;
+        num_down[i].index = i;
+        remove[i].index = i;
+
+
+        pitchs[i].onclick = function() {
+            if (this.checked) {
+                // 这是显示已经选中宝贝的总数量  当选中后 选中宝贝数量加1 
+                picths_num.innerHTML = ++picths_num.innerHTML;
+                // 拿出这一行的价钱
+                allPrice += Number(total[this.index].innerHTML);
+                // 写到总价中
+                priceAll.innerHTML = allPrice;
+            } else {
+                picths_num.innerHTML = --picths_num.innerHTML;
+                allPrice -= Number(total[this.index].innerHTML);
+                priceAll.innerHTML = allPrice;
+            }
+        }
+        num_up[i].onclick = function() {
+            addNum = 0;
+            allPrice = 0;
+            var shuliang = num[this.index].innerHTML;
+            shuliang++;
+            num[this.index].innerHTML = shuliang;
+            total[this.index].innerHTML = shuliang * (price[this.index].innerHTML);
+            if (!pitchs[this.index].checked) {
+                // 这里是当你点击增加数量和 这个复选框自己选择上
+                pitchs[this.index].checked = true;
+            }
+            for (var i = 0; i < pitchs.length; i++) {
+                // 因为上面复选框已经选择了  这时候下面的价钱应该也变动  所以遍历复选框 看谁选上为了，把价钱加到总价上
+                if (pitchs[i].checked) {
+                    addNum++;
+                    allPrice += Number(total[i].innerHTML);
+                }
+
+            }
+            // 把数量和总价插入到里面
+            picths_num.innerHTML = addNum;
+            priceAll.innerHTML = allPrice;
+        }
+        num_down[i].onclick = function() {
+            addNum = 0;
+            allPrice = 0;
+            var shuliang = num[this.index].innerHTML;
+            shuliang--;
+            // 当数量小于0的时候做下面的操作
+            if (shuliang < 1) {
+                // 执行删除操作@
+                allPrice = 0;
+
+                // ？？？？？？？？？？？？？？？？？？？？？？
+                // 这个给他增加一个不存在的类名 方便下面使用
+                tr[this.index].className = "hanmy";
+
+                pitchs[this.index].checked = false;
+                // 当执行到这的时候 那条信息就隐藏了
+                tr[this.index].style.display = "none";
+                    // 如果有这个类命名的数量 不等于tr 长度 就执行下面的  就代表
+                if (document.querySelectorAll(".hanmy").length != tr.length) {
+                    for (var i = 0; i < tr.length; i++) {
+                        // 如果tr 没有被class并且并选中了  就执行下面的操作
+                        if (!tr[i].className && pitchs[i].checked) {
+                            removeNum++;
+                            picths_num.innerHTML = removeNum;
+                            allPrice += Number(total[i].innerHTML);
+                        }
+                    }
+
+                } else {
+                    // 这时候是 tr 表空了 就把选择的数量和价格重置为0
+                    console.log("1");
+                    removeNum = 0;
+                    allPrice = 0;
+                    picths_num.innerHTML = removeNum;
+                 
+                }
+
+                priceAll.innerHTML = allPrice;
+            } else {  //这个是当数量不小于1 时 做的该做的操作，计算数量 计算总价啥的
+                num[this.index].innerHTMLlue = shuliang;
+                total[this.index].innerHTML = shuliang * (price[this.index].innerHTML);
+                if (!pitchs[this.index].checked) {
+                    pitchs[this.index].checked = true;
+                }
+                for (var i = 0; i < pitchs.length; i++) {
+                    if (pitchs[i].checked) {
+                        addNum++;
+                        allPrice += Number(total[i].innerHTML);
+                    }
+
+                }
+                picths_num.innerHTML = addNum;
+                priceAll.innerHTML = allPrice;
+            }
+
+        }
+        // 这是删除操作 跟上面数量小于1 时操作很像,
+        var removeNum = 0;
+        remove[i].onclick = function() {
+            allPrice = 0;
+            tr[this.index].className = "hanmy";
+            pitchs[this.index].checked = false;
+            tr[this.index].style.display = "none";
+
+            if (document.querySelectorAll(".hanmy").length != tr.length) {
+                for (var i = 0; i < tr.length; i++) {
+                    if (!tr[i].className && pitchs[i].checked) {
+                        removeNum++;
+                        picths_num.innerHTML = removeNum;
+                        allPrice += Number(total[i].innerHTML);
+                    }
+                }
+            } else {
+                console.log("1");
+                removeNum = 0;
+                allPrice = 0;
+                picths_num.innerHTML = removeNum;
+                picths_num.innerHTML = removeNum
+            }
+
+            priceAll.innerHTML = allPrice;
+       
+
+        }
+        // 循环到这里结束
+    }
+    // 全选按钮就一行  不需要循环的添加
+    allBtn.onclick = function() {
+                    // pitchs 获取宝贝的 
+        for (var i = 0; i < pitchs.length; i++) {
+            // 让下面其他复选框的状态等于总选框的状态
+            pitchs[i].checked = this.checked;
+        }
+    // 全选按钮状态开关 默认是true
+        if (allBtn_on) {
+            // 把选中宝贝的长度赋值给 下面总的数量
+            picths_num.innerHTML = pitchs.length;
+                // 获取价格
+            for (var j = 0; j < total.length; j++) {
+                allPrice += Number(total[j].innerHTML);
+            }
+
+            priceAll.innerHTML = allPrice;
+
+            allBtn_on = false;
+
+        } else {//这个就是全选按钮不是true 清空所以信息
+            picths_num.innerHTML = 0;
+            allPrice = 0;
+            priceAll.innerHTML = 0;
+            allBtn_on = true;
+        }
+
+    }
+
+    var html = "";
+    // 价格排序开关
+    var price_on = true;
+    sort.onclick = function() {
+        html = "";
+        var list = data.list;
+        if (price_on) {
+            list = up(data.list);
+            price_on = false;
+        } else {
+            list = down(data.list);
+            price_on = true;
+        }
+
+        for (var i = 0; i < list.length; i++) {
+            html += "<tr>" + "<td class='pitch'>" + "<input type='checkbox'/></td>" + "<td>" + list[i].name + "</td>" + "<td class='price'>" + list[i].price + "</td>" + "<td>" + "<div class='quantity'>" + "<span class='num_up'>+</span>" + "<var class='num'>" + list[i].num + "</var>" + "<span class='num_down'>-</span>" + "</div>" + "</td>" + "<td class='total'>" + list[i].price + "</td>" + "<td class='remove'>" + "<a href='javascript:void(0)'>删除</a>" + "</td>" + "</tr>";
+        }
+        document.querySelector(".list").innerHTML = html;
+    }
+
+    function up(list) {
+        return list.sort(function(a, b) {
+            return a.price - b.price;
+        });
+    }
+    function down(list) {
+        return list.sort(function(a, b) {
+            return b.price - a.price;
+        });
+    }</script>
+</html>

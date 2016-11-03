@@ -5,6 +5,11 @@ from datetime import datetime
 from tinymce.models import HTMLField
 
 
+class ShopCartManager(models.Manager):
+    def get_queryset(self):
+        return super(ShopCartManager, self).get_queryset().filter(isDelete=False)
+
+
 class UserInfo(models.Model):
 	'''
 		用户个人信息表
@@ -15,6 +20,10 @@ class UserInfo(models.Model):
 	# telephone = models.CharField(max_length=11)
 	email= models.CharField(max_length=30)
 	isDelete = models.BooleanField(default = False)
+
+	def __str__(self):
+		return self.account.encode('utf-8')
+
 
 
 class Consignee(models.Model):
@@ -57,27 +66,35 @@ class GoodsList(models.Model):
 	goodsUnit = models.CharField(max_length=20)	# 商品规格
 	goodsPubdate = models.DateTimeField()	#商品发布时间
 	
+	def __str__(self):
+		return self.goodsName.encode('utf-8')
 
 
 
 # 购物车
 class ShoppingCart(models.Model):
 
-    goodsId = models.ForeignKey('GoodsList')#商品id
+	goodsId = models.ForeignKey('GoodsList')#商品id
 
-    userId = models.ForeignKey('UserInfo')#用户id
+	userId = models.ForeignKey('UserInfo')#用户id
 
-    c = models.IntegerField()#数量
+	c = models.IntegerField()#数量
 
-    total = models.FloatField()#小计
+	total = models.FloatField()#小计
 
-    isDelete = models.BooleanField(default=False)	#是否删除
+	isDelete = models.BooleanField(default=False)	#是否删除
+	# 重写管理方法
+	# objects = ShopCartManager()
+
+
+
+
 
 
 
 # 订单表
 class OrderForm(models.Model):
-    #订单时间
+	#订单时间
 	orderDate = models.DateTimeField()
 	#用户id外键指向用户表的主键
 	userId = models.ForeignKey('UserInfo')

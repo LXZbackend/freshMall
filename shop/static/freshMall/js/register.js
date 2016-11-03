@@ -40,13 +40,11 @@ $(function(){
 
 	function check_user_name(){
 		var len = $('#user_name').val().length;
+		$uername = $('#user_name')
 // $.post('/testform/',{'name':$('#user_name').val()},function(data){	
 // 			// if (data.name==false){
 // 			// 	$uername.next('span').text('这个用户名可以使用')
 // 			// }
-
-
-
 		if(len>5&&len<20)
 		{
 			// 这是验证用户是否存在
@@ -138,14 +136,33 @@ $(function(){
 
 		if(error_name == false && error_password == false && error_check_password == false && error_email == false && error_check == false)
 		{
+			alert("shuru头无")
 			return true;
 		}
 		else
-		{
+		{	alert("shuru头无")
 			return false;
 		}
 
 	});
+// 这是购物车操作
+
+//加的效果
+// $(".add").click(function(){
+// var n=$(this).prev().val();
+// var num=parseInt(n)+1;
+// if(num==0){ return;}
+// $(this).prev().val(num);
+// });
+// //减的效果
+// $(".jian").click(function(){
+// var n=$(this).next().val();
+// var num=parseInt(n)-1;
+// if(num==0){ return}
+// $(this).next().val(num);
+// });
+// })
+// 执行相加的效果
 
 
 

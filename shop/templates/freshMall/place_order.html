@@ -1,37 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	{% load static from staticfiles %}
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>天天生鲜-提交订单</title>
-	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/reset.css'%}">
-	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/main.css'%}">
-</head>
-<body>
-	<div class="header_con">
-		<div class="header">
-			<div class="welcome fl">欢迎来到天天生鲜!</div>
-			<div class="fr">
-				<div class="login_info fl">
-					欢迎您：<em>张 山</em>
-				</div>
-				<div class="login_btn fl">
-					<a href="login.html">登录</a>
-					<span>|</span>
-					<a href="register.html">注册</a>
-				</div>
-				<div class="user_link fl">
-					<span>|</span>
-					<a href="user_center_info.html">用户中心</a>
-					<span>|</span>
-					<a href="cart.html">我的购物车</a>
-					<span>|</span>
-					<a href="user_center_order.html">我的订单</a>
-				</div>
-			</div>
-		</div>		
-	</div>
+{%extends "freshMall/base.html"%}
+{%load static from staticfiles%}
+{%block content%}
+<script type="text/javascript"> 
+	$(function(){
+		pic=$('.total_goods_count b').text()
+		
+			pic = parseFloat(pic)
+		console.log($('.total_pay b').text(pic+10))
 
+	});
+</script>
 	<div class="search_bar clearfix">
 		<a href="index.html" class="logo fl"><img src="{%static 'freshMall/images/logo.png'%}"></a>
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;提交订单</div>
@@ -76,33 +54,28 @@
 			<li class="col04">数量</li>
 			<li class="col05">小计</li>		
 		</ul>
+
+	{%for shop in submitCart%}
 		<ul class="goods_list_td clearfix">
-			<li class="col01">1</li>			
-			<li class="col02"><img src="{%static 'freshMall/images/goods/goods012.jpg'%}"></li>
-			<li class="col03">奇异果</li>
-			<li class="col04">500g</li>
-			<li class="col05">25.80元</li>
-			<li class="col06">1</li>
-			<li class="col07">25.80元</li>	
+			<li class="col01">{{forloop.counter}}</li>			
+			<li class="col02"><img src="{%static shop.goodsId.goodsRoute %}"></li>
+			<li class="col03">{{shop.goodsId.goodsName}}</li>
+			<li class="col04">{{shop.goodsId.goodsUnit}}</li>
+			<li class="col05">{{shop.goodsId.goodsPrice}}元</li>
+			<li class="col06">{{shop.c}}</li>
+			<li class="col07">{{shop.total}}元</li>	
 		</ul>
-		<ul class="goods_list_td clearfix">
-			<li class="col01">2</li>			
-			<li class="col02"><img src="{%static 'freshMall/images/goods/goods003.jpg'%}"></li>
-			<li class="col03">大兴大棚草莓</li>
-			<li class="col04">500g</li>
-			<li class="col05">16.80元</li>
-			<li class="col06">1</li>
-			<li class="col07">16.80元</li>	
-		</ul>
-	</div>
+
+
+{%endfor%}
 
 	<h3 class="common_title">总金额结算</h3>
 
 	<div class="common_list_con clearfix">
 		<div class="settle_con">
-			<div class="total_goods_count">共<em>2</em>件商品，总金额<b>42.60元</b></div>
+			<div class="total_goods_count">共<em>{{sumCount}}</em>件商品，总金额<b>{{sumPic}}</b>元</div>
 			<div class="transit">运费：<b>10元</b></div>
-			<div class="total_pay">实付款：<b>52.60元</b></div>
+			<div class="total_pay">实付款：<b>52.60</b>元</div>
 		</div>
 	</div>
 
@@ -110,19 +83,7 @@
 		<a href="javascript:;" id="order_btn">提交订单</a>
 	</div>	
 
-	<div class="footer">
-		<div class="foot_link">
-			<a href="#">关于我们</a>
-			<span>|</span>
-			<a href="#">联系我们</a>
-			<span>|</span>
-			<a href="#">招聘人才</a>
-			<span>|</span>
-			<a href="#">友情链接</a>		
-		</div>
-		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
-		<p>电话：010-****888    京ICP备*******8号</p>
-	</div>
+{%endblock%}
 
 	<div class="popup_con">
 		<div class="popup">
@@ -131,21 +92,3 @@
 		
 		<div class="mask"></div>
 	</div>
-	<script type="text/javascript" src="js/jquery-1.12.2.js"></script>
-	<script type="text/javascript">
-		$('#order_btn').click(function() {
-			localStorage.setItem('order_finish',2);
-
-			$('.popup_con').fadeIn('fast', function() {
-
-				setTimeout(function(){
-					$('.popup_con').fadeOut('fast',function(){
-						window.location.href = 'index.html';
-					});	
-				},3000)
-				
-			});
-		});
-	</script>
-</body>
-</html>

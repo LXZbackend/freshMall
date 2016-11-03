@@ -10,45 +10,6 @@
 	<script type="text/javascript" src="{%static 'freshMall/js/register.js'%}"></script>
 </head>
 
-
-<!-- $.post("test.php", { name: "John", time: "2pm" },
-   function(data){
-     alert("Data Loaded: " + data);
-   }); -->
-	<script type="text/javascript">
-		$(function(){
-			$uername = $("#user_name")
-			// $uername.focusout(function(){
-			// 	// 这是一个异步请求
-			// $.post('/testform/',{'name':$('#user_name').val()},function(data){	
-			// if (data.name==false){
-			// 	$uername.next('span').text('这个用户名可以使用')
-			// }
-
-
-					
-				
-			// })
-
-
-
-
-			// });
-
-
-		});
-
-
-
-
-
-
-	</script>
-	
-
-
-
-
 <body>
 	<div class="register_con">
 		<div class="l_con fl">
@@ -63,7 +24,7 @@
 				<a href="/login/">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form method='POST' action="/rejisrHandle/">
+				<form method='POST' action="/registerHandle/">
 				<ul>
 					<li>
 						<label>用户名:</label>
