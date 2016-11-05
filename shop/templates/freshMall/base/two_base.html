@@ -1,0 +1,21 @@
+{%extends "freshMall/base.html"%}
+{%load static from staticfiles%}
+{%block content%}
+<div class="search_bar clearfix">
+		<a href="index.html" class="logo fl"><img src="images/logo.png"></a>
+		<div class="search_con fl">
+			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
+			<input type="button" class="input_btn fr" name="" value="搜索">
+		</div>
+		<div class="guest_cart fr">
+			<a href="cart.html" class="cart_name fl">我的购物车</a>
+			<div class="goods_count fl" id="show_count">1</div>
+		</div>
+	</div>
+
+
+<!--这是首页 列表 商品详情列表 共用的搜索和购物车 -->
+{%block content1%} {%endblock%}
+
+{%endblock content%}
+

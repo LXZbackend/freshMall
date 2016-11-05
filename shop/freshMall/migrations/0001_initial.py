@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import django.utils.timezone
 import tinymce.models
 
 
@@ -50,8 +51,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('goodsCount', models.IntegerField()),
-                ('orderSum', models.DecimalField(max_digits=6, decimal_places=2)),
-                ('isPay', models.BooleanField()),
+                ('total', models.FloatField()),
                 ('goodsId', models.ForeignKey(to='freshMall.GoodsList')),
             ],
         ),
@@ -59,17 +59,19 @@ class Migration(migrations.Migration):
             name='OrderForm',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('orderDate', models.DateTimeField()),
+                ('orderDate', models.DateTimeField(default=django.utils.timezone.now)),
                 ('orderNum', models.IntegerField()),
+                ('isPay', models.BooleanField()),
+                ('orderSum', models.DecimalField(max_digits=6, decimal_places=2)),
             ],
         ),
         migrations.CreateModel(
             name='ShoppingCart',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('c', models.IntegerField()),
+                ('amount', models.IntegerField()),
                 ('total', models.FloatField()),
-                ('isDelete', models.BooleanField(default=False)),
+                ('isSettle', models.BooleanField(default=False)),
                 ('goodsId', models.ForeignKey(to='freshMall.GoodsList')),
             ],
         ),

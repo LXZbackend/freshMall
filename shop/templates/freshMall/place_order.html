@@ -1,23 +1,48 @@
-{%extends "freshMall/base.html"%}
+{%extends "freshMall/two_base2.html"%}
+{%block title%}	<title>天天生鲜-提交订单</title>{%endblock%}
+
 {%load static from staticfiles%}
-{%block content%}
+
+{%block info%}
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;提交订单</div>
+{%endblock%} 
+
+
+{%block content1%}
 <script type="text/javascript"> 
 	$(function(){
 		pic=$('.total_goods_count b').text()
 		
 			pic = parseFloat(pic)
-		console.log($('.total_pay b').text(pic+10))
+			pic = pic+10
+		console.log($('.total_pay b').text(pic))
+
+		$('#order_btn').click(function(){
+
+			$.post('/submitOrder/',{'orderSum':pic},function(data){
+					if(data.result){
+						window.location= '/user_center_order/'
+					}
+
+
+
+			});
+			
+
+		})
+
+
+
 
 	});
+
+
+
+
+
+
 </script>
-	<div class="search_bar clearfix">
-		<a href="index.html" class="logo fl"><img src="{%static 'freshMall/images/logo.png'%}"></a>
-		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;提交订单</div>
-		<div class="search_con fr">
-			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
-			<input type="button" class="input_btn fr" name="" value="搜索">
-		</div>		
-	</div>
+	
 	
 	<h3 class="common_title">确认收货地址</h3>
 
@@ -62,7 +87,7 @@
 			<li class="col03">{{shop.goodsId.goodsName}}</li>
 			<li class="col04">{{shop.goodsId.goodsUnit}}</li>
 			<li class="col05">{{shop.goodsId.goodsPrice}}元</li>
-			<li class="col06">{{shop.c}}</li>
+			<li class="col06">{{shop.amount}}</li>
 			<li class="col07">{{shop.total}}元</li>	
 		</ul>
 
@@ -83,7 +108,6 @@
 		<a href="javascript:;" id="order_btn">提交订单</a>
 	</div>	
 
-{%endblock%}
 
 	<div class="popup_con">
 		<div class="popup">
@@ -92,3 +116,4 @@
 		
 		<div class="mask"></div>
 	</div>
+{%endblock content1%}

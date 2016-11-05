@@ -1,7 +1,11 @@
-{%extends "freshMall/index_base.html"%}
+{%extends "freshMall/two_base2.html"%}
+{%block title%}<title>天天生鲜-商品详情</title>{%endblock%}
 {%load static from staticfiles%}
-
-{%block maincontent%}
+<!-- 这是对应每个的信息 -->
+  {%block info%}
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
+	{%endblock%} 
+{%block content1%}
 <!-- 在这个页面引入这个页面的js -->
 	<script type="text/javascript" src="{%static 'freshMall/js/cart2.js'%}"></script>
 
@@ -18,7 +22,7 @@
 	{%for car in carlist%}
 	<!-- 这个页面只展示没有被结算的 -->
 	<!-- 这里加个判断 如果购物车里的已经结算成为,订单了就把这个商品不再展示在这个页面  -->
-		{%if car.isDelete = 0 %}
+		{%if car.isSettle = 0 %}
 			<ul class="cart_list_td clearfix">
 				<li class="col01" ><input type="checkbox" name=""  id='checked' ></li>
 				<li class="col02"><img src="{%static car.goodsId.goodsRoute%}"></li>
@@ -28,12 +32,12 @@
 				<li class="col06">
 					<div class="num_add">
 						<a href="javascript:;" class="add fl">+</a>
-						<input type="text" class="num_show fl" value='{{car.c}}' name='{{car.goodsId.id}}'">	 
+						<input type="text" class="num_show fl" value='{{car.amount}}' name='{{car.goodsId.id}}'">	 
 						<a href="javascript:;" class="minus fl">-</a>	
 					</div>
 				</li>
 				<li class="col07">￥<span>{{car.total}}</span></li>
-				<li class="col08"><a href="/place_order/" id='remove'>删除</a></li>
+				<li class="col08"><a href="javascript:;" id='remove'>删除</a></li>
 		{%endif%}
 
 	</ul>
@@ -46,11 +50,11 @@
 		<li class="col01 all"><input type="checkbox" name="" ></li>
 		<li class="col02">全选</li>
 		<li class="col03">合计(不含运费)：<span>¥</span><em id='total_pic'>0</em><br>共计<b id="total_num">0</b>件商品</li>
-		<li class="col04"><a href="/place_order/">去结算</a></li>
+		<li class="col04"><a href="javascript:;">去结算</a></li>
 
 	</ul>
 
 	
 
 		
-{%endblock maincontent%}
+ {%endblock content1%}

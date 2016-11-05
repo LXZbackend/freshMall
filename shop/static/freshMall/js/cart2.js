@@ -55,6 +55,12 @@ var picths_num = document.querySelector('.settlements #total_num');
 // 宝贝数量的长度
 var length = pitchs.length;
 // alert(length)
+var number = $('.total_count em').text()
+
+$('.total_count em').text(length)
+
+
+
 
 for(var i =0;i<length;i++){
 	pitchs[i].index=i;
@@ -149,10 +155,23 @@ for(var i =0;i<length;i++){
 				// 等他判断谁被选中时就把 这个删除的也加上了  就不正确了 所以 这里要提醒他说 这个没有被选中
 				// 这个给他增加一个不存在的类名 方便下面使用
 				tr[this.index].className = "hanmy";
-
 				pitchs[this.index].checked = false;
 				// 当执行到这的时候 那条信息就隐藏了
 				tr[this.index].style.display = "none";
+				// 计数
+				number--;
+				$('.total_count em').text(number);
+
+				// 同样是删除数据库
+					shopId = $(this).prev().attr('name')
+				 	// post 请求 用于传传输删除的商品id
+				 	$.post('/delCartShop/',{'shopId':shopId})
+				  console.log(shopId)
+
+
+
+
+
 					// 如果有这个类命名的数量 不等于tr 长度 就执行下面的  就代表
 				if (document.querySelectorAll(".hanmy").length != tr.length) {
 					for (var i = 0; i < tr.length; i++) {
@@ -204,7 +223,30 @@ for(var i =0;i<length;i++){
 		tr[this.index].className = "hanmy";
 		pitchs[this.index].checked = false
 		tr[this.index].style.display = 'none'
-		console.log(document.querySelectorAll(".hanmy").length)
+		// 件数减少
+				number--;
+				$('.total_count em').text(number);
+		// console.log(document.querySelectorAll(".hanmy").length)
+
+		// 这是告诉服务器 删除一个操作购物车 通过找到id 传到服务器,并删除
+	
+	  // console.log($(this).prev().prev().find('.num_show').attr('name'))
+	 	shopId = $(this).parent().prev().prev().find('input').attr('name')
+	 	// post 请求 用于传传输删除的商品id
+	 	$.post('/delCartShop/',{'shopId':shopId})
+	  console.log(shopId)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	if (document.querySelectorAll(".hanmy").length != tr.length) {
@@ -293,6 +335,15 @@ $jiesuan.click(function(){
 				$.post('/cartHandle/',JSON.stringify(data),
 
 				  function(data){
+				  	// 并没用
+				  	if(data.result){
+				  		// 当服务器处理完 通过jq重定向 这样就不会产生数据不同步
+				  		window.location= '/place_order/'
+				  	}
+
+				  	console.log(data.result)
+
+
 			});
 
 

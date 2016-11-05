@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'freshmall3',
+        'NAME': 'freshmall5',
         'PORT': '3306',
         'HOST': 'localhost',
         'USER': 'root',

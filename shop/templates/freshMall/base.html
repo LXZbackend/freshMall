@@ -3,21 +3,20 @@
 <head>
 {%load static from staticfiles%}
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>天天生鲜-首页</title>
+	{%block title%}<title>天天生鲜-首页</title>{%endblock%}
 	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/reset.css'%}">
 	<link rel="stylesheet" type="text/css" href="{%static 'freshMall/css/main.css'%}">
 	<script type="text/javascript" src="{%static  'freshMall/js/jquery-1.12.4.min.js'%}"></script>
 	<script type="text/javascript" src="{%static 'freshMall/js/jquery-ui.min.js'%}"></script>
 	<script type="text/javascript" src="{%static 'freshMall/js/slide.js'%}"></script>
 	<script type="text/javascript" src="{%static 'freshMall/js/register.js'%}"></script>
-	<!-- <script type="text/javascript" src="{%static 'freshMall/js/cart.js'%}"></script> -->
-	<!-- <script type="text/javascript" src="{%static 'freshMall/js/cart2.js'%}"></script> -->
+
 
 	</head>
 <body>
 	<div class="header_con">
 		<div class="header">
-			<div class="welcome fl">欢迎来到天天生鲜!{{user_name}}</div>
+			<div class="welcome fl">欢迎来到天天生鲜!</div>
 			<div class="fr">
 			{%if user_name %}
 					<div class="login_info fl">
@@ -35,10 +34,6 @@
 					</div>
 			{%endif%}
 				
-
-
-
-
 				<div class="user_link fl">
 					<span>|</span>
 					<a href="/user_center_info/">用户中心</a>

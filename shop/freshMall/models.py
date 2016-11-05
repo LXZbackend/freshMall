@@ -3,11 +3,11 @@
 from django.db import models
 from datetime import datetime
 from tinymce.models import HTMLField
+import django.utils.timezone as timezone
 
-
-class ShopCartManager(models.Manager):
-    def get_queryset(self):
-        return super(ShopCartManager, self).get_queryset().filter(isDelete=False)
+# class ShopCartManager(models.Manager):
+#     def get_queryset(self):
+#         return super(BookInfoManager, self).get_queryset().filter(isDelete=False)
 
 
 class UserInfo(models.Model):
@@ -78,13 +78,14 @@ class ShoppingCart(models.Model):
 
 	userId = models.ForeignKey('UserInfo')#用户id
 
-	c = models.IntegerField()#数量
+	amount = models.IntegerField()#数量
 
 	total = models.FloatField()#小计
 
-	isDelete = models.BooleanField(default=False)	#是否删除
+	isSettle = models.BooleanField(default=False)	#是否结算
 	# 重写管理方法
 	# objects = ShopCartManager()
+
 
 
 
@@ -95,11 +96,19 @@ class ShoppingCart(models.Model):
 # 订单表
 class OrderForm(models.Model):
 	#订单时间
-	orderDate = models.DateTimeField()
+	orderDate = models.DateTimeField(default = timezone.now)
 	#用户id外键指向用户表的主键
 	userId = models.ForeignKey('UserInfo')
 	#订单编号 自己写规则生成
 	orderNum= models.IntegerField()
+	# 是否付款
+	isPay = models.BooleanField()
+
+	# 总金额
+	orderSum = models.DecimalField(max_digits=6, decimal_places=2)
+	# 加上这个是为了在订单页面 显示的时候 根据订单iD 倒序显示,就是先展示最近的订单
+	class Meta():
+		ordering = ['-id']
 
 
 class OrderDetail(models.Model):
@@ -112,15 +121,11 @@ class OrderDetail(models.Model):
 	
 	# 数量
 	goodsCount =models.IntegerField()
-	# 总金额
-	orderSum = models.DecimalField(max_digits=6, decimal_places=2)
+	# 商品对应的小计
+	total = models.FloatField()
+
+	
 	# 用户id
 	# userId = models.ForeignKey('UserInfo')
 	#是否付款 (订单状态)
-	isPay = models.BooleanField()
-	def orderStatus(self):
-		if self.isPay:
-			return "已付款"
-		else:
-			return "未付款"
-		orderStatus.short_description = "订单状态"
+	

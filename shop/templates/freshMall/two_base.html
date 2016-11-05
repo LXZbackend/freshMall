@@ -1,6 +1,7 @@
 {%extends "freshMall/base.html"%}
 {%load static from staticfiles%}
 <!-- 这是base 的开始 -->
+<!-- 这个页面是 首页 详情页面  列表页面 共同购物车和搜索 -->
 {%block content%}
 
 <div class="search_bar clearfix">
@@ -12,8 +13,8 @@
 			</form>
 		</div>
 		<div class="guest_cart fr">
-			<a href="#" class="cart_name fl">我的购物车</a>
-			<div class="goods_count fl" id="show_count">1</div>
+			<a href="/cart/" class="cart_name fl">我的购物车</a>
+			<div class="goods_count fl" id="show_count">{{shopNum}}</div>
 		</div>
 	</div>
 	

@@ -24,16 +24,16 @@ class goodsListAdmin(admin.ModelAdmin):
 
 
 class shoppingCartAdmin(admin.ModelAdmin):
-    list_display = ['goodsId', 'userId', 'userId', 'total']
+    list_display = ['goodsId', 'userId', 'userId', 'total','isSettle']
 
 
 class orderFormAdmin(admin.ModelAdmin):
-    list_display = ['orderDate', 'userId']
+    list_display = ['orderDate', 'userId','isPay','orderNum','orderSum']
 
 
 class orderDetailAdmin(admin.ModelAdmin):
-    list_display = ['goodsId', 'orderId', 'orderId',
-                    'goodsCount', 'orderSum', 'orderStatus']
+    list_display = ['goodsId', 'orderId', 
+                    'goodsCount', 'total']
 
 
 admin.site.register(UserInfo, userInfoAdmin)
