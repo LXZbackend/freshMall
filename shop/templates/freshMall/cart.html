@@ -25,7 +25,9 @@
 		{%if car.isSettle = 0 %}
 			<ul class="cart_list_td clearfix">
 				<li class="col01" ><input type="checkbox" name=""  id='checked' ></li>
-				<li class="col02"><img src="{%static car.goodsId.goodsRoute%}"></li>
+				<a href="{% url 'freshMall:detail'%}?goodsId={{car.goodsId.id}}">
+					<li class="col02"><img src="{%static car.goodsId.goodsRoute%}"></li>
+				</a>
 				<li class="col03"><span>{{car.goodsId.goodsName}} </span><br><em>{{car.goodsId.goodsPrice}}/{{car.goodsId.goodsUnit}}</em></li>
 				<li class="col04">{{car.goodsId.goodsUnit}}</li>
 				<li class="col05">{{car.goodsId.goodsPrice}}</li>

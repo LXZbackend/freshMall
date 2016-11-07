@@ -15,12 +15,12 @@
 	</div>
 	<div class="center_con clearfix">
 		<ul class="subnav fl">
-			<li><a href="#model01" class="fruit">新鲜水果</a></li>
-			<li><a href="#model02" class="seafood">海鲜水产</a></li>
-			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
-			<li><a href="#model04" class="egg">禽类蛋品</a></li>
-			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
-			<li><a href="#model06" class="ice">速冻食品</a></li>
+			<li><a href="{% url 'freshMall:list'%}?classId=1" class="fruit">新鲜水果</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=2" class="seafood">海鲜水产</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=3" class="meet">猪牛羊肉</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=4" class="egg">禽类蛋品</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=5" class="vegetables">新鲜蔬菜</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=6" class="ice">速冻食品</a></li>
 		</ul>
 		<div class="slide fl">
 			<ul class="slide_pics">
@@ -49,7 +49,7 @@
 				<a href="#">加州提子</a>
 				<a href="#">亚马逊牛油果</a>
 			</div>
-			<a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
+			<a href="/list1/" class="goods_more fr" id="fruit_more">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
@@ -58,8 +58,8 @@
 			
 			{%for fruit in fruitlist%}
 				<li>
-					<h4><a href="/detail{{fruit.id}}/">{{fruit.goodsName}}</a></h4>
-					<a href="/detail{{fruit.id}}/"><img src="{%static fruit.goodsRoute %}"></a>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{fruit.id}}/">{{fruit.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{fruit.id}}"><img src="{%static fruit.goodsRoute %}"></a>
 					<div class="prize">¥ {{fruit.goodsPrice}}</div>
 				</li>
 			{%endfor%}
@@ -76,7 +76,7 @@
 				<a href="#">河虾</a>
 				<a href="#">扇贝</a>				
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/list2/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
@@ -84,8 +84,8 @@
 			<ul class="goods_list fl">
 				{%for seafood in seafoodlist%}
 				<li>
-					<h4><a href="/detail{{seafood.id}}/">{{seafood.goodsName}}</a></h4>
-					<a href="/detail{{seafood.id}}/"><img src="{%static seafood.goodsRoute %}"></a>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{seafood.id}}">{{seafood.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{seafood.id}}"><img src="{%static seafood.goodsRoute %}"></a>
 					<div class="prize">¥ {{seafood.goodsPrice}}</div>
 				</li>
 			{%endfor%}
@@ -99,11 +99,11 @@
 			<h3 class="fl" id="model03">猪牛羊肉</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				<a href="#">黑猪肉</a>
+				<a href="#">牛肉</a>
+				<a href="#">新疆羊肉</a>
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/list3/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
@@ -111,8 +111,8 @@
 			<ul class="goods_list fl">
 				{%for meat in meatlist%}
 				<li>
-					<h4><a href="/detail{{meat.id}}/">{{meat.goodsName}}</a></h4>
-					<a href="/detail{{meat.id}}/"><img src="{%static meat.goodsRoute %}"></a>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{meat.id}}">{{meat.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{meat.id}}"><img src="{%static meat.goodsRoute %}"></a>
 					<div class="prize">¥ {{meat.goodsPrice}}</div>
 				</li>
 			{%endfor%}
@@ -127,11 +127,11 @@
 			<h3 class="fl" id="model04">禽类蛋品</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				<a href="#">鸡蛋</a>
+				<a href="#">鸡肉</a>
+				<a href="#">鸭蛋</a>
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/list4/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
@@ -141,8 +141,8 @@
 
 		{%for poultry in poultrylist%}
 				<li>
-					<h4><a href="/detail{{poultry.id}}/">{{poultry.goodsName}}</a></h4>
-					<a href="/detail{{poultry.id}}/"><img src="{%static poultry.goodsRoute %}"></a>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{poultry.id}}">{{poultry.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{poultry.id}}"><img src="{%static poultry.goodsRoute %}"></a>
 					<div class="prize">¥ {{poultry.goodsPrice}}</div>
 				</li>
 			{%endfor%}
@@ -157,21 +157,21 @@
 			<h3 class="fl" id="model05">新鲜蔬菜</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				<a href="#">西红柿</a>
+				<a href="#">黄瓜</a>
+				<a href="#">韭菜</a>
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/list5/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="{%static 'freshMall/images/banner05.jpg'%}"></div>
 			<ul class="goods_list fl">
-			{%for fruit in fruitlist%}
+			{%for green in greenlist%}
 				<li>
-					<h4><a href="/detail{{fruit.id}}/">{{fruit.goodsName}}</a></h4>
-					<a href="/detail{{fruit.id}}/"><img src="{%static fruit.goodsRoute %}"></a>
-					<div class="prize">¥ {{fruit.goodsPrice}}</div>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{green.id}}">{{green.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{green.id}}"><img src="{%static green.goodsRoute %}"></a>
+					<div class="prize">¥ {{green.goodsPrice}}</div>
 				</li>
 			{%endfor%}
 			
@@ -184,21 +184,21 @@
 			<h3 class="fl" id="model06">速冻食品</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				<a href="#">冰棍</a>
+				<a href="#">冰淇淋</a>
+				<a href="#">速冻水饺</a>
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/list6/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="{%static 'freshMall/images/banner06.jpg'%}"></div>
 			<ul class="goods_list fl">
-					{%for fruit in fruitlist%}
+					{%for cooler in coolerlist%}
 				<li>
-					<h4><a href="#">{{fruit.goodsName}}</a></h4>
-					<a href="#"><img src="{%static fruit.goodsRoute %}"></a>
-					<div class="prize">¥ {{fruit.goodsPrice}}</div>
+					<h4><a href="{% url 'freshMall:detail'%}?goodsId={{cooler.id}}">{{cooler.goodsName}}</a></h4>
+					<a href="{% url 'freshMall:detail'%}?goodsId={{cooler.id}}"><img src="{%static cooler.goodsRoute %}"></a>
+					<div class="prize">¥ {{cooler.goodsPrice}}</div>
 				</li>
 			{%endfor%}
 

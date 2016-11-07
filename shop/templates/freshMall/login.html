@@ -26,7 +26,7 @@
 				</div>
 				<div class="form_input">
 					<form method='post' action='/loginHandle/'>
-						<input type="text" name="uname" class="name_input" placeholder="请输入用户名">
+						<input type="text" name="uname" class="name_input" placeholder="请输入用户名" value="{{remberAccount}}">
 						<div class="user_error">输入错误</div>
 						<input type="password" name="pwd" class="pass_input" placeholder="请输入密码">
 						<div class="pwd_error">输入错误</div>
@@ -36,6 +36,7 @@
 							<a href="#">忘记密码</a>
 						</div>
 						<input type="submit" name="" value="登录" class="input_submit">
+
 					</form>
 				</div>
 			</div>

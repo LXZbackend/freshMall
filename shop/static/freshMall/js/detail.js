@@ -50,6 +50,7 @@ $('.add_cart').click(function(){
 	$.post('/addCart/',{'goodID':goodID,'num':num,'total':total},
 	       function(data){
 	       $('.goods_count').text(data.shopNum)
+	       // alert(data.shopNum)
 	       			location.reload()
 	       }
 

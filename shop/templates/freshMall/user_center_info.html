@@ -6,8 +6,6 @@
 {%block info%}
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
 {%endblock%} 
-
-
 {%block content1%}
 	<div class="main_con clearfix">
 		<div class="left_menu_con clearfix">
@@ -29,57 +27,20 @@
 				</div>
 				
 				<h3 class="common_title2">最近浏览</h3>
-				<div class="has_view_list">
+				<diq1jjv class="has_view_list">
 					<ul class="goods_type_list clearfix">
+					{%for shop in shoplist%}
 				<li>
-                    <a href="detail.html"><img src="{%static 'freshMall/images/goods/goods003.jpg'%}"></a>
-					<h4><a href="detail.html">大兴大棚草莓</a></h4>
+          <a href="{% url 'freshMall:detail'%}?goodsId={{shop.id}}""><img src="{%static shop.goodsRoute%}"></a>
+					<h4><a href="detail.html">{{shop.goodsName}}</a></h4>
 					<div class="operate">
-						<span class="prize">￥16.80</span>
-						<span class="unit">16.80/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
+						<span class="prize" name='{{showGoods.id}}'>￥{{shop.goodsPrice}}</span>
+						<span class="unit" name='{{showGoods.goodsPrice}}'>{{shop.goodsPrice}}/{{shop.goodsUnit}}</span>
+						<a href="javascript:;" class="add_goods" title="加入购物车"></a>
 					</div>
 				</li>
-
-				<li>
-                    <a href="#"><img src="{%static 'freshMall/images/goods/goods004.jpg'%}"></a>
-					<h4><a href="#">吐鲁番梨光杏</a></h4>
-					<div class="operate">
-						<span class="prize">￥5.50</span>
-						<span class="unit">5.50/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
-					</div>
-				</li>
-
-				<li>
-                    <a href="#"><img src="{%static 'freshMall/images/goods/goods005.jpg'%}"></a>
-					<h4><a href="#">黄肉桃</a></h4>
-					<div class="operate">
-						<span class="prize">￥10.00</span>
-						<span class="unit">10.00/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
-					</div>
-				</li>
-
-				<li>
-                    <a href="#"><img src="{%static 'freshMall/images/goods/goods006.jpg'%}"></a>
-					<h4><a href="#">进口西梅</a></h4>
-					<div class="operate">
-						<span class="prize">￥28.80</span>
-						<span class="unit">28.8/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
-					</div>
-				</li>
-
-				<li>
-                    <a href="#"><img src="{%static 'freshMall/images/goods/goods007.jpg'%}"></a>
-					<h4><a href="#">香梨</a></h4>
-					<div class="operate">
-						<span class="prize">￥6.45</span>
-						<span class="unit">6.45/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
-					</div>
-				</li>
+				{%endfor%}
+				
 			</ul>
 		</div>
 		</div>

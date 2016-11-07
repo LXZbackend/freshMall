@@ -19,7 +19,7 @@ class goodsClassAdmin(admin.ModelAdmin):
 
 
 class goodsListAdmin(admin.ModelAdmin):
-    list_display = ['goodsName', 'goodsDetail', 'goodsRoute',
+    list_display = ['goodsName', 'goodsRoute',
                     'goodsStock', 'goodsPrice', 'goodsType']
 
 

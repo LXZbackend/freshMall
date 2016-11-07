@@ -9,12 +9,12 @@
 				<h1>全部商品分类</h1>	
 				<span></span>			
 				<ul class="subnav">
-					<li><a href="#" class="fruit">新鲜水果</a></li>
-					<li><a href="#" class="seafood">海鲜水产</a></li>
-					<li><a href="#" class="meet">猪牛羊肉</a></li>
-					<li><a href="#" class="egg">禽类蛋品</a></li>
-					<li><a href="#" class="vegetables">新鲜蔬菜</a></li>
-					<li><a href="#" class="ice">速冻食品</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=1" class="fruit">新鲜水果</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=2" class="seafood">海鲜水产</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=3" class="meet">猪牛羊肉</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=4" class="egg">禽类蛋品</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=5" class="vegetables">新鲜蔬菜</a></li>
+					<li><a href="{% url 'freshMall:list'%}?classId=6" class="ice">速冻食品</a></li>
 				</ul>
 			</div>
 			<ul class="navlist fl">
@@ -36,19 +36,19 @@
 	</div>
 
 	<div class="goods_detail_con clearfix">
-		<div class="goods_detail_pic fl"><img src="{%static shopinfo.goodsRoute%}"></div>
+		<div class="goods_detail_pic fl"><img src="{%static goods.goodsRoute%}"></div>
 
 		<div class="goods_detail_list fr">
-			<h3>{{shopinfo.goodsName}}</h3>
-			<p>{{shopinfo.goodsResume}}</p>
+			<h3>{{goods.goodsName}}</h3>
+			<p>{{goods.goodsResume}}</p>
 			<div class="prize_bar">
-				<span class="show_pirze">¥<em>{{shopinfo.goodsPrice}}</em></span>
-				<span class="show_unit">单  位：{{shopinfo.goodsUnit}}</span>
+				<span class="show_pirze">¥<em>{{goods.goodsPrice}}</em></span>
+				<span class="show_unit">单  位：{{goods.goodsUnit}}</span>
 			</div>
 			<div class="goods_num clearfix">
 				<div class="num_name fl">数 量：</div>
 				<div class="num_add fl">
-					<input type="text" class="num_show fl" value="1" name="{{shopinfo.id}}">
+					<input type="text" class="num_show fl" value="1" name="{{goods.id}}">
 					<a href="javascript:;" class="add fr">+</a>
 					<a href="javascript:;" class="minus fr">-</a>	
 				</div> 
@@ -66,16 +66,13 @@
 			<div class="new_goods">
 				<h3>新品推荐</h3>
 				<ul>
-					<li>
-						<a href="#"><img src="{%static 'freshMall/images/goods001.jpg'%}"></a>
-						<h4><a href="#">进口柠檬</a></h4>
-						<div class="prize">￥3.90</div>
+			{%for good1 in recommendGoods%}
+				<li>
+						<a href="{% url 'freshMall:detail'%}?goodsId={{good1.id}}"><img src="{%static good1.goodsRoute%}"></a>
+						<h4><a href="{% url 'freshMall:detail'%}?goodsId={{good1.id}}">{{good1.goodsName}}</a></h4>
+						<div class="prize">￥{{good1.goodsPrice}}</div>
 					</li>
-					<li>
-						<a href="#"><img src="{%static 'freshMall/images/goods002.jpg'%}"></a>
-						<h4><a href="#">玫瑰香葡萄</a></h4>
-						<div class="prize">￥16.80</div>
-					</li>
+				{%endfor%}
 				</ul>
 			</div>
 		</div>
@@ -89,7 +86,7 @@
 			<div class="tab_content">
 				<dl>
 					<dt>商品详情：</dt>
-					<dd>{{shopinfo.goodsDetail|safe}} </dd>
+					<dd>{{goods.goodsDetail|safe}} </dd>
 				</dl>
 			</div>
 

@@ -317,6 +317,7 @@ $jiesuan.click(function(){
 			// 通过查询器 找到ul对应的ul 下面的input 在input 中取到商品的id 和数量
 			$shoptext=$('.cart_list_td').eq(i).find('.num_show')
 			goodId = 	$shoptext.attr('name')
+			// 
 			gID.push(goodId)
 			goodnum = $shoptext.val()
 			gNum.push(goodnum)

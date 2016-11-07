@@ -11,9 +11,9 @@ urlpatterns = [
     url(r'^loginout/$', views.loginout, name='loginout'),  # 退出
     url(r'^cart/$', views.cart, name='cart'),  # 购物车
 
-    url(r'^list/$', views.list, name="list"),  # 商品列表
+    # url(r'^list([0-9]*)/$', views.list, name="list"),  # 商品列表
     # 详情页面跳转
-    url(r'^detail([0-9]*)/$', views.detail, name='detail'),  # 详情页面
+    # url(r'^detail([0-9]*)/$', views.detail, name='detail'),  # 详情页面
     url(r'^register/$', views.register, name='register'),  # 注册页面
 
     url(r'^user_center_order([0-9]*)/$', views.user_center_order,
@@ -41,6 +41,21 @@ urlpatterns = [
     # 详情页面立即购买
 
     url(r"^immediateBuy/$", views.immediateBuy, name='immediateBuy'),
+    # 用户添加收件人信息
+
+     url(r"^usersitehandler/$", views.usersitehandler, name='usersitehandler'),
+
+
+
+    #马尧
+    url(r'^list/$', views.list, name='list'),
+    url(r'^detail/$', views.detail, name='detail'),
+
+
+
+
+
+
 
 
 ]

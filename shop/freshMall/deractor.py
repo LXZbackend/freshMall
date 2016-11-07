@@ -4,11 +4,11 @@ from models import *
 def login_name(fn):
 	def fun(request,*args):
 		username = request.session.get('name',default='')
+
 		if username!='':
 			per = UserInfo.objects.get(account=username)
-			# 找到这个人的购物车数量 
 			shopNum = ShoppingCart.objects.filter(userId=per.id).filter(isSettle=False)
-			# print '购物车的数量',len(shopNum)
+			print '购物车的数量',len(shopNum)
 			dic = {
 			'shopNum':len(shopNum),
 			'user_name':username
