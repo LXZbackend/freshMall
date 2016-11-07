@@ -293,7 +293,7 @@ html,body{height:100%}
 .name_input,.pass_input{width:306px;height:36px;border:1px solid #e0e0e0;background:url(../images/icons02.png) 280px -41px no-repeat #f8f8f8;outline:none;font-size:14px;text-indent:10px;position: absolute;left:0;top:0}
 .pass_input{top:65px;background-position:280px -95px;}
 
-.user_error,.pwd_error{color:#f00;position:absolute;left:0;top:43px;display:none}
+.user_error,.pwd_error{color:#f00;position:absolute;left:0;top:43px;}
 
 .pwd_error{top:110px;}
 
@@ -334,6 +334,7 @@ html,body{height:100%}
 .reg_form li.agreement label{width:300px;float:left;margin-left:10px;}
 .reg_form li.reg_sub input{width:360px;height:40px;background-color:#47aa34;font-size:18px;color:#fff;font-family:'Microsoft Yahei';cursor:pointer;}
 .reg_form li .error_tip{float:left;height:30px;line-height:30px;margin-left:70px;color:#e62e2e;display:none;}
+.registerError{height:30px;line-height:30px;margin-left:70px;color:#e62e2e;}
 .reg_form li .error_tip2{float:left;height:20px;line-height:20px;color:#e62e2e;display:none;}
 
 

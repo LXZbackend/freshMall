@@ -53,6 +53,10 @@ def registerHandle(request):
 					# 这是柳怀洋 代码
 
 	'''
+	dic={
+	"flag":True
+	}
+
 	u=UserInfo()
 	#这是判断用户是否勾选同意协议
 	if request.POST.get('allow')=='on':
@@ -72,17 +76,21 @@ def registerHandle(request):
 						u.email = request.POST['email']
 						u.isDelete = False
 						u.save()
-						return render(request, 'freshMall/login.html')
+						return render(request, 'freshMall/login.html',dic)
 					else:
-						return render(request, 'freshMall/register.html')
+						dic['info'] = "你输入的邮箱已经被使用!"
+						return render(request, 'freshMall/register.html',dic)
 				else:
-					return render(request, 'freshMall/register.html')
+					dic['info']="两个次输入的密码不一样"
+					return render(request, 'freshMall/register.html',dic)
 			else:
-				return render(request, 'freshMall/register.html')
+				return render(request, 'freshMall/register.html',dic)
 		else:
-			return render(request, 'freshMall/register.html')
+			dic['info'] = "输入不能为为空"
+
+			return render(request, 'freshMall/register.html',dic)
 	else:
-		return render(request, 'freshMall/register.html')
+		return render(request, 'freshMall/register.html',dic)
 
 
 
@@ -123,9 +131,10 @@ def loginHandle(request):
 	
 		return response
 	else:
-		propmptInfo='<h4 color="red">你输入的信息有误<h34>'
+		propmptInfo='输入的账户或者密码错误!'
 		dic = {
-		'propmptInfo':propmptInfo
+		'propmptInfo':propmptInfo,
+		'flag':True,
 		}
 		return render(request, 'freshMall/login.html',dic)
 
@@ -159,7 +168,6 @@ def testform(request):
 					这是用户在注册是 验证账户是否被使用了,一个异步验证
 
 	'''
-
 	# 这个方法是处理注册是异步检测账户是否存在的一个方法
 	nameflag = False
 	testname = request.POST['name']
@@ -179,9 +187,11 @@ def testform(request):
 def detail(request, dic):
 	'''
 					每个商品的详情页面
+					bug 没有如果没有登录 seesion 就不能操作 
 
 	'''
-	per = UserInfo.objects.get(account=dic['user_name'])
+	if dic['user_name']:
+		per = UserInfo.objects.get(account=dic['user_name'])
 
 	# # 找到商品的id
 	# del request.session[per.account]
@@ -190,28 +200,29 @@ def detail(request, dic):
 
 	# 下面这个代码是实现把相对应的用户,最近浏览的商品信息存到cookiet 根据
 	# # cookiet 的键是根据用户账户存的
+	if dic['user_name']:
+	
+		if request.session.get(per.account):
+			print "这是有"
+			alreadybrowse = request.session.get(per.account)
+			alreadybrowse.append(goods.id)
+			# # 先得找出这个人的已有的session 取出来,再添加,不然每次都会覆盖以前的.
 
-	if request.session.get(per.account):
-		print "这是有"
-		alreadybrowse = request.session.get(per.account)
-		alreadybrowse.append(goods.id)
-		# # 先得找出这个人的已有的session 取出来,再添加,不然每次都会覆盖以前的.
-
-		print "这是在商品页面取出的seesion11111", request.session.get(per.account)
-		# 这里因为是引用 所以直接往里面添加,其seesion显示也改变了
-		# alreadybrowse.append(goods.id)
-		request.session[per.id]=alreadybrowse
-		# print "这是在商品页面取出的seesion", alreadybrowse
-		print "这是在商品页面取出的seesion", request.session.get(per.account)
+			print "这是在商品页面取出的seesion11111", request.session.get(per.account)
+			# 这里因为是引用 所以直接往里面添加,其seesion显示也改变了
+			# alreadybrowse.append(goods.id)
+			request.session[per.id]=alreadybrowse
+			# print "这是在商品页面取出的seesion", alreadybrowse
+			print "这是在商品页面取出的seesion", request.session.get(per.account)
 
 
-	else:
-		print "这是没有"
-		request.session[per.account] = []
-		alreadybrowse = request.session.get(per.account)
-		alreadybrowse.append(goods.id)
-		request.session[per.account]=alreadybrowse
-		print request.session[per.account]
+		else:
+			print "这是没有"
+			request.session[per.account] = []
+			alreadybrowse = request.session.get(per.account)
+			alreadybrowse.append(goods.id)
+			request.session[per.account]=alreadybrowse
+			print request.session[per.account]
 	# 马尧代码******************************
 	goods = GoodsList.objects.all()
 	#推荐商品(当前类对应下的列表)
@@ -224,13 +235,21 @@ def detail(request, dic):
 	recommendGoods = GoodsList.objects.filter(goodsType = goodclass).order_by('-goodsPubdate')[0:4]
 
 	# print '这是view中数量',dic['shopNum']
-	goodsDic = {
+	if dic['user_name']:
+		goodsDic = {
+			'goods':goods,
+			'recommendGoods':recommendGoods,
+			'goodClass':goodclass,
+			'user_name':dic['user_name'],
+			'shopNum':dic['shopNum'],
+		}
+	else:
+		goodsDic = {
 		'goods':goods,
 		'recommendGoods':recommendGoods,
 		'goodClass':goodclass,
-		'user_name':dic['user_name'],
-		'shopNum':dic['shopNum'],
-	}
+		
+		}
 
 	return render(request,'freshMall/detail.html',goodsDic)
 
@@ -642,18 +661,31 @@ def list(request,dic):
 	# goods = GoodsList.objects.get(pk = id)
 	
 
-	goodsDic = {
-		'recommendGoods':recommendGoods,
-		'pageList': list2, 
-		'plist':plist,
-		'goodclass':goodclass,
-		'pIndex': pIndex,
-		'active':active,
-		'sort':sort,
-		'user_name':dic['user_name'],
-		'shopNum':dic['shopNum'],
-	}
 
+	# 这是后期测试找的一个bug 如果登录了则显示购物车信息啥的 如果没登录就不返回那些
+	if dic['user_name']:
+		goodsDic = {
+			'recommendGoods':recommendGoods,
+			'pageList': list2, 
+			'plist':plist,
+			'goodclass':goodclass,
+			'pIndex': pIndex,
+			'active':active,
+			'sort':sort,
+			'user_name':dic['user_name'],
+			'shopNum':dic['shopNum'],
+		}
+	else:
+		goodsDic = {
+			'recommendGoods':recommendGoods,
+			'pageList': list2, 
+			'plist':plist,
+			'goodclass':goodclass,
+			'pIndex': pIndex,
+			'active':active,
+			'sort':sort,
+			
+		}
 	
 	return render(request,'freshMall/list.html',goodsDic)
 
