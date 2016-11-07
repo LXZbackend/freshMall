@@ -1,3 +1,4 @@
+#coding=utf-8
 """
 Django settings for shop project.
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'freshMall',
      'tinymce',
+     'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +120,12 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 600,
     'height': 400,
 }
+# 这是全文搜索的配置文件
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

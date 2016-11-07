@@ -82,8 +82,10 @@
 
 	{%for shop in submitCart%}
 		<ul class="goods_list_td clearfix">
+		<a href="{% url 'freshMall:detail'%}?goodsId={{shop.goodsId.id}}">
 			<li class="col01">{{forloop.counter}}</li>			
 			<li class="col02"><img src="{%static shop.goodsId.goodsRoute %}"></li>
+			</a>
 			<li class="col03">{{shop.goodsId.goodsName}}</li>
 			<li class="col04">{{shop.goodsId.goodsUnit}}</li>
 			<li class="col05">{{shop.goodsId.goodsPrice}}元</li>

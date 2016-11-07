@@ -1,0 +1,3 @@
+{{ object.goodsName }}
+{{ object.goodsResume }}
+{{ object.goodsDetail }}

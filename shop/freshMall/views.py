@@ -417,8 +417,6 @@ def user_center_order(request, dic, pIndex):  # 这里的pIndex是位置参数
 
 		orderlist = OrderForm.objects.filter(userId=per.id)
 	 
-
-
 		# 传一个列表 和每页要显示几个
 		pag = Paginator(orderlist, 4)
 		pagelist = pag.page_range

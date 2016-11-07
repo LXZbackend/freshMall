@@ -9,12 +9,12 @@
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
 		{%endblock%} 
 		<div class="search_con fr">
-			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
-			<input type="button" class="input_btn fr" name="" value="搜索">
+		<form action='/search/' method='GET' target="_blank">
+			<input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+			<input type="submit" class="input_btn fr" name="" value="搜索">
+		</form>
 		</div>		
 	</div>
 
-
 {%block content1%} {%endblock%}
-
 {%endblock content%}

@@ -21,7 +21,7 @@ urlpatterns = [
     # 个人信息
     url(r'^user_center_info/$', views.user_center_info, name="user_center_info"),
     url(r'^user_center_site/$', views.user_center_site, name="user_center_site"),
-    url(r'^search/$', views.search, name='search'),
+    # url(r'^search/$', views.search, name='search'),
     url(r'^registerHandle/$', views.registerHandle, name='registerHandle'),
     # 购物车传过来信息
     url(r"^cartHandle/$", views.cartHandle, name='cartHandle'),
