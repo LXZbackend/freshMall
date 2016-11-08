@@ -39,7 +39,7 @@
         <!-- <a href="/{{ result.object.id }}/">{{ result.object.goodsName }}</a><br/> -->
 
     <ul class="goods_type_list clearfix">
-    {%for result in page.object_list%}
+    {%for result in object_list%}
         <li>
             <a href="{% url 'freshMall:detail'%}?goodsId={{result.object.id}}"><img src="{%static result.object.goodsRoute%}"></a>
             <h4><a href="{% url 'freshMall:detail'%}?goodsId={{result.object.id}}">{{result.object.goodsName}}</a></h4>

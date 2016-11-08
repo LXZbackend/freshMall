@@ -75,11 +75,16 @@ $('.buy_btn').click(function(){
 			  	}
 
 	}); 
-
-
-
-
 });
+
+
+// $('.goods_detail_list .num_show').change(function(){
+
+// })
+
+
+
+
 
 
 

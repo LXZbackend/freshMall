@@ -49,9 +49,18 @@
 	<div class="common_list_con clearfix">
 		<dl>
 			<dt>寄送到：</dt>
-			<dd><input type="radio" name="" checked="">北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528</dd>
+			<!-- <dd><input type="radio" name="" checked="">北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528</dd> -->
+
+			{%for rece in receInfo%}
+			{%if forloop.counter == 1%}
+				<dd><input type="radio" name="reveperson" checked="checked">{{rece.addr}} ({{rece.recePerName}} &nbsp;收)  &nbsp;  联系方式:  {{rece.recePerTel}} </dd>
+			{%else%}
+				<dd><input type="radio" name="reveperson" >{{rece.addr}} ({{rece.recePerName}} &nbsp;收)  &nbsp;   联系方式: {{rece.recePerTel}} </dd>
+				{%endif%}
+
+			{%endfor%}
 		</dl>
-		<a href="user_center_site.html" class="edit_site">编辑收货地址</a>
+		<a href="/user_center_site/" class="edit_site">编辑收货地址</a>
 
 	</div>
 	
