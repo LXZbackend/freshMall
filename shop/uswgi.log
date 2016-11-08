@@ -1,0 +1,839 @@
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 19:45:28 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+writing pidfile to uwsgi.pid
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 192.168.64.133:8080 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:42321 (port auto-assigned) fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0xe46dd0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xe46dd0 pid: 35115 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 35115)
+spawned uWSGI worker 1 (pid: 35130, cores: 2)
+spawned uWSGI worker 2 (pid: 35131, cores: 2)
+spawned uWSGI worker 3 (pid: 35132, cores: 2)
+spawned uWSGI worker 4 (pid: 35134, cores: 2)
+spawned uWSGI http 1 (pid: 35136)
+[pid: 35132|app: 0|req: 1/1] 192.168.64.133 () {36 vars in 608 bytes} [Mon Nov  7 19:46:02 2016] GET / => generated 12107 bytes in 1919 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 2/2] 192.168.64.133 () {36 vars in 611 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/js/register.js => generated 107 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 3/3] 192.168.64.133 () {36 vars in 638 bytes} [Mon Nov  7 19:46:05 2016] GET /resource/freshMall/images/logo.png => generated 108 bytes in 28 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 2/4] 192.168.64.133 () {36 vars in 624 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/css/reset.css => generated 106 bytes in 1280 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 2/5] 192.168.64.133 () {36 vars in 621 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/js/jquery-ui.min.js => generated 112 bytes in 1282 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 2/6] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 19:46:05 2016] GET /resource/freshMall/images/slide.jpg => generated 109 bytes in 546 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 2/7] 192.168.64.133 () {36 vars in 622 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/css/main.css => generated 105 bytes in 1295 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 2/8] 192.168.64.133 () {36 vars in 605 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/js/slide.js => generated 104 bytes in 1305 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 2/9] 192.168.64.133 () {36 vars in 629 bytes} [Mon Nov  7 19:46:04 2016] GET /resource/freshMall/js/jquery-1.12.4.min.js => generated 116 bytes in 1333 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 4/10] 192.168.64.133 () {36 vars in 644 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/slide02.jpg => generated 111 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 3/11] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/adv02.jpg => generated 109 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 5/12] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/adv01.jpg => generated 109 bytes in 18 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 3/13] 192.168.64.133 () {36 vars in 644 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/slide03.jpg => generated 111 bytes in 25 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 4/14] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner01.jpg => generated 112 bytes in 13 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 4/15] 192.168.64.133 () {36 vars in 644 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/slide04.jpg => generated 111 bytes in 45 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 5/16] 192.168.64.133 () {36 vars in 662 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/570f74d8N15a5dd4c_Xq6khDn.jpg => generated 120 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 6/17] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57eb584fN4f8b6502.jpg => generated 112 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 5/18] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57d7c4b9N8c2e5e53.jpg => generated 112 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 6/19] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner02.jpg => generated 112 bytes in 11 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 8/20] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57edd963N3b8c1e0c.jpg => generated 112 bytes in 24 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 8/21] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57a038ffNbe15b3f7.jpg => generated 112 bytes in 24 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 3/22] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/578ef80dN7e827310.jpg => generated 112 bytes in 17 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 6/24] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57bebf1cN32caf6d5.jpg => generated 112 bytes in 5 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 8/25] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner03.jpg => generated 112 bytes in 14 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 8/26] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57e26b08N03e29d16.jpg => generated 112 bytes in 30 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 5/27] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/579b2695N2b4210bc.jpg => generated 112 bytes in 19 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 7/28] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/574cea75Nbca8cf5b.jpg => generated 112 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 5/28] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/577492c5N7dbed10f.jpg => generated 112 bytes in 13 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 9/29] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/571888c6N83029e68.jpg => generated 112 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 8/30] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/5812be59Nf418cc3d.jpg => generated 112 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 9/31] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/58098760N7773e25e.jpg => generated 112 bytes in 16 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 10/32] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner05.jpg => generated 112 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 7/33] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/55ef93dfN5961a3c9.jpg => generated 112 bytes in 24 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 10/34] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/5703dabaNf8692f7e.jpg => generated 112 bytes in 11 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 7/35] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57df9360N8df45ecb.jpg => generated 112 bytes in 27 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 10/36] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner04.jpg => generated 112 bytes in 37 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 11/37] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57136e73N70771e15.jpg => generated 112 bytes in 4 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 12/38] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/56f4be09N30c89042.jpg => generated 112 bytes in 12 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 8/39] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/banner06.jpg => generated 112 bytes in 16 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 10/40] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/575bf3f2Nc69dc64f.jpg => generated 112 bytes in 26 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 11/41] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57d000b9N8c589f4c.jpg => generated 112 bytes in 39 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 11/42] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/581070a4Nd0c26012.jpg => generated 112 bytes in 27 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 10/43] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57ec4f0bNb6e16bc6.jpg => generated 112 bytes in 37 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 10/44] 192.168.64.133 () {36 vars in 646 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/uploads/57c954b1N4c00ade1.jpg => generated 112 bytes in 26 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 12/45] 192.168.64.133 () {36 vars in 637 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/logo.png => generated 108 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 13/46] 192.168.64.133 () {36 vars in 639 bytes} [Mon Nov  7 19:46:06 2016] GET /resource/freshMall/images/slide.jpg => generated 109 bytes in 17 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 12/47] 192.168.64.133 () {36 vars in 566 bytes} [Mon Nov  7 19:46:07 2016] GET /favicon.ico => generated 85 bytes in 13 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 13/48] 192.168.64.133 () {38 vars in 639 bytes} [Mon Nov  7 19:47:42 2016] GET / => generated 12107 bytes in 477 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 12/49] 192.168.64.133 () {38 vars in 652 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/js/jquery-ui.min.js => generated 112 bytes in 10 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 14/50] 192.168.64.133 () {38 vars in 655 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/css/reset.css => generated 106 bytes in 15 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 14/51] 192.168.64.133 () {38 vars in 653 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/css/main.css => generated 105 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 15/52] 192.168.64.133 () {38 vars in 636 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/js/slide.js => generated 104 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 15/53] 192.168.64.133 () {38 vars in 642 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/js/register.js => generated 107 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 12/54] 192.168.64.133 () {38 vars in 660 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/js/jquery-1.12.4.min.js => generated 116 bytes in 28 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 15/55] 192.168.64.133 () {38 vars in 669 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/logo.png => generated 108 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 14/56] 192.168.64.133 () {38 vars in 675 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/slide02.jpg => generated 111 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 15/57] 192.168.64.133 () {38 vars in 675 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/slide04.jpg => generated 111 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 16/58] 192.168.64.133 () {38 vars in 675 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/slide03.jpg => generated 111 bytes in 20 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 16/59] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/adv02.jpg => generated 109 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 14/60] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/slide.jpg => generated 109 bytes in 39 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 14/61] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/adv01.jpg => generated 109 bytes in 21 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 16/62] 192.168.64.133 () {38 vars in 693 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/570f74d8N15a5dd4c_Xq6khDn.jpg => generated 120 bytes in 5 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 17/63] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/banner01.jpg => generated 112 bytes in 5 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 15/64] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57eb584fN4f8b6502.jpg => generated 112 bytes in 5 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 16/65] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57edd963N3b8c1e0c.jpg => generated 112 bytes in 13 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 17/66] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57d7c4b9N8c2e5e53.jpg => generated 112 bytes in 10 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 18/67] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/578ef80dN7e827310.jpg => generated 112 bytes in 13 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 17/69] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/banner02.jpg => generated 112 bytes in 19 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 18/69] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57a038ffNbe15b3f7.jpg => generated 112 bytes in 19 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 18/70] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57e26b08N03e29d16.jpg => generated 112 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 18/71] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/577492c5N7dbed10f.jpg => generated 112 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 19/72] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/579b2695N2b4210bc.jpg => generated 112 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 21/73] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/574cea75Nbca8cf5b.jpg => generated 112 bytes in 6 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 19/74] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/571888c6N83029e68.jpg => generated 112 bytes in 6 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35131|app: 0|req: 19/75] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57bebf1cN32caf6d5.jpg => generated 112 bytes in 20 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 19/76] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/banner04.jpg => generated 112 bytes in 18 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 21/77] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/banner03.jpg => generated 112 bytes in 35 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 20/78] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/58098760N7773e25e.jpg => generated 112 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 20/79] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57df9360N8df45ecb.jpg => generated 112 bytes in 17 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 20/80] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/5812be59Nf418cc3d.jpg => generated 112 bytes in 71 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 20/81] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/55ef93dfN5961a3c9.jpg => generated 112 bytes in 17 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 21/82] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/5703dabaNf8692f7e.jpg => generated 112 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 21/83] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/freshMall/images/banner05.jpg => generated 112 bytes in 39 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35132|app: 0|req: 22/84] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/575bf3f2Nc69dc64f.jpg => generated 112 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35134|app: 0|req: 23/85] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/57136e73N70771e15.jpg => generated 112 bytes in 20 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35134|app: 0|req: 23/86] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:43 2016] GET /resource/uploads/56f4be09N30c89042.jpg => generated 112 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 22/87] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:44 2016] GET /resource/freshMall/images/banner06.jpg => generated 112 bytes in 10 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35132|app: 0|req: 23/88] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:44 2016] GET /resource/uploads/57ec4f0bNb6e16bc6.jpg => generated 112 bytes in 27 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 35130|app: 0|req: 22/89] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:44 2016] GET /resource/uploads/57d000b9N8c589f4c.jpg => generated 112 bytes in 63 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35131|app: 0|req: 23/90] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:44 2016] GET /resource/uploads/57c954b1N4c00ade1.jpg => generated 112 bytes in 116 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 35130|app: 0|req: 22/91] 192.168.64.133 () {38 vars in 677 bytes} [Mon Nov  7 19:47:44 2016] GET /resource/uploads/581070a4Nd0c26012.jpg => generated 112 bytes in 130 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+gateway "uWSGI http 1" has been buried (pid: 35136)
+...gracefully killing workers...
+Gracefully killing worker 3 (pid: 35132)...
+Gracefully killing worker 1 (pid: 35130)...
+Gracefully killing worker 4 (pid: 35134)...
+Gracefully killing worker 2 (pid: 35131)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:42321)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 19:50:02 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1ad3b00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1ad3b00 pid: 35115 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 35115)
+spawned uWSGI worker 1 (pid: 35318, cores: 2)
+spawned uWSGI worker 2 (pid: 35319, cores: 2)
+spawned uWSGI worker 3 (pid: 35321, cores: 2)
+spawned uWSGI worker 4 (pid: 35322, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+...brutally killing workers...
+Gracefully killing worker 4 (pid: 35322)...
+Gracefully killing worker 3 (pid: 35321)...
+Gracefully killing worker 1 (pid: 35318)...
+Gracefully killing worker 2 (pid: 35319)...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (192.168.64.133:8080)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 20:02:19 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1db7690
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 4 seconds on interpreter 0x1db7690 pid: 35115 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 35115)
+spawned uWSGI worker 1 (pid: 35838, cores: 2)
+spawned uWSGI worker 2 (pid: 35839, cores: 2)
+spawned uWSGI worker 3 (pid: 35840, cores: 2)
+spawned uWSGI worker 4 (pid: 35841, cores: 2)
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 20:09:31 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+writing pidfile to uwsgi.pid
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2649d50
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x2649d50 pid: 2746 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2746)
+spawned uWSGI worker 1 (pid: 2758, cores: 2)
+spawned uWSGI worker 2 (pid: 2759, cores: 2)
+spawned uWSGI worker 3 (pid: 2760, cores: 2)
+spawned uWSGI worker 4 (pid: 2761, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 2758)...
+Gracefully killing worker 2 (pid: 2759)...
+Gracefully killing worker 4 (pid: 2761)...
+Gracefully killing worker 3 (pid: 2760)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (192.168.64.133:8080)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 20:16:59 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2220690
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x2220690 pid: 2746 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 2746)
+spawned uWSGI worker 1 (pid: 3716, cores: 2)
+spawned uWSGI worker 2 (pid: 3717, cores: 2)
+spawned uWSGI worker 3 (pid: 3718, cores: 2)
+spawned uWSGI worker 4 (pid: 3719, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 3716)...
+Gracefully killing worker 2 (pid: 3717)...
+Gracefully killing worker 4 (pid: 3719)...
+Gracefully killing worker 3 (pid: 3718)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (192.168.64.133:8080)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 20:18:31 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (192.168.64.133:8080).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 20:34:13 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+writing pidfile to uwsgi.pid
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 192.168.64.133:8080 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:42482 (port auto-assigned) fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0xe1add0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xe1add0 pid: 4135 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 4135)
+spawned uWSGI worker 1 (pid: 4139, cores: 2)
+spawned uWSGI worker 2 (pid: 4140, cores: 2)
+spawned uWSGI worker 3 (pid: 4141, cores: 2)
+spawned uWSGI worker 4 (pid: 4142, cores: 2)
+spawned uWSGI http 1 (pid: 4143)
+[pid: 4142|app: 0|req: 1/1] 192.168.64.133 () {38 vars in 639 bytes} [Mon Nov  7 20:34:24 2016] GET / => generated 12021 bytes in 1426 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 2/2] 192.168.64.133 () {36 vars in 625 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/js/jquery-1.12.4.min.js => generated 6013 bytes in 19 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 2/3] 192.168.64.133 () {36 vars in 618 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/css/main.css => generated 5980 bytes in 821 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 2/4] 192.168.64.133 () {36 vars in 620 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/css/reset.css => generated 5983 bytes in 835 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 2/5] 192.168.64.133 () {36 vars in 601 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/js/slide.js => generated 5977 bytes in 1012 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 2/6] 192.168.64.133 () {36 vars in 617 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/js/jquery-ui.min.js => generated 6001 bytes in 1033 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 2/7] 192.168.64.133 () {36 vars in 607 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/js/register.js => generated 5986 bytes in 1139 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 2/8] 192.168.64.133 () {36 vars in 634 bytes} [Mon Nov  7 20:34:26 2016] GET /static/freshMall/images/logo.png => generated 5989 bytes in 959 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 3/9] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/slide03.jpg => generated 5998 bytes in 15 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 4/10] 192.168.64.133 () {36 vars in 636 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/adv02.jpg => generated 5992 bytes in 49 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 4/11] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/slide02.jpg => generated 5998 bytes in 76 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 4/12] 192.168.64.133 () {36 vars in 636 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/adv01.jpg => generated 5992 bytes in 87 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 4/13] 192.168.64.133 () {36 vars in 640 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/slide04.jpg => generated 5998 bytes in 127 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 4/14] 192.168.64.133 () {36 vars in 636 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/slide.jpg => generated 5992 bytes in 138 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 5/15] 192.168.64.133 () {36 vars in 658 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/570f74d8N15a5dd4c_Xq6khDn.jpg => generated 6025 bytes in 51 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 4/16] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57edd963N3b8c1e0c.jpg => generated 6001 bytes in 46 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 5/17] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner01.jpg => generated 6001 bytes in 134 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 6/18] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57d7c4b9N8c2e5e53.jpg => generated 6001 bytes in 81 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 6/20] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57eb584fN4f8b6502.jpg => generated 6001 bytes in 151 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 6/20] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57e26b08N03e29d16.jpg => generated 6001 bytes in 53 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 6/21] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner02.jpg => generated 6001 bytes in 100 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 7/22] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/577492c5N7dbed10f.jpg => generated 6001 bytes in 21 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 6/23] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/578ef80dN7e827310.jpg => generated 6001 bytes in 120 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 6/24] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57a038ffNbe15b3f7.jpg => generated 6001 bytes in 124 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 7/25] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57bebf1cN32caf6d5.jpg => generated 6001 bytes in 36 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 7/26] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner03.jpg => generated 6001 bytes in 61 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 7/27] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/574cea75Nbca8cf5b.jpg => generated 6001 bytes in 69 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 7/28] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/579b2695N2b4210bc.jpg => generated 6001 bytes in 92 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 9/29] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/571888c6N83029e68.jpg => generated 6001 bytes in 112 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 9/30] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner04.jpg => generated 6001 bytes in 137 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 9/31] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/58098760N7773e25e.jpg => generated 6001 bytes in 95 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 9/32] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57df9360N8df45ecb.jpg => generated 6001 bytes in 80 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 9/33] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/55ef93dfN5961a3c9.jpg => generated 6001 bytes in 107 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 9/34] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/5812be59Nf418cc3d.jpg => generated 6001 bytes in 131 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 11/35] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/56f4be09N30c89042.jpg => generated 6001 bytes in 84 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 11/36] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner05.jpg => generated 6001 bytes in 133 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 11/37] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/5703dabaNf8692f7e.jpg => generated 6001 bytes in 135 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 12/38] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/57136e73N70771e15.jpg => generated 6001 bytes in 204 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 11/40] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/uploads/575bf3f2Nc69dc64f.jpg => generated 6001 bytes in 195 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 13/41] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:28 2016] GET /static/uploads/581070a4Nd0c26012.jpg => generated 6001 bytes in 113 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 11/39] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:27 2016] GET /static/freshMall/images/banner06.jpg => generated 6001 bytes in 164 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 13/42] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:28 2016] GET /static/uploads/57ec4f0bNb6e16bc6.jpg => generated 6001 bytes in 135 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 13/43] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:28 2016] GET /static/uploads/57c954b1N4c00ade1.jpg => generated 6001 bytes in 95 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 13/44] 192.168.64.133 () {36 vars in 642 bytes} [Mon Nov  7 20:34:28 2016] GET /static/uploads/57d000b9N8c589f4c.jpg => generated 6001 bytes in 196 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 12/45] 192.168.64.133 () {40 vars in 620 bytes} [Mon Nov  7 20:34:28 2016] GET /favicon.ico => generated 5926 bytes in 33 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 14/46] 192.168.64.133 () {36 vars in 620 bytes} [Mon Nov  7 20:34:51 2016] GET /static/freshMall/css/reset.css => generated 5983 bytes in 29 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 8/47] 192.168.64.133 () {36 vars in 616 bytes} [Mon Nov  7 20:34:51 2016] GET /static/freshMall/css/main.css => generated 5980 bytes in 34 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 13/48] 192.168.64.133 () {38 vars in 639 bytes} [Mon Nov  7 21:34:53 2016] GET / => generated 12021 bytes in 327 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 15/49] 192.168.64.133 () {38 vars in 656 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/js/jquery-1.12.4.min.js => generated 6013 bytes in 82 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 15/50] 192.168.64.133 () {38 vars in 651 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/css/reset.css => generated 5983 bytes in 89 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 15/51] 192.168.64.133 () {38 vars in 648 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/js/jquery-ui.min.js => generated 6001 bytes in 93 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 15/52] 192.168.64.133 () {38 vars in 649 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/css/main.css => generated 5980 bytes in 116 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 15/53] 192.168.64.133 () {38 vars in 632 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/js/slide.js => generated 5977 bytes in 120 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 16/54] 192.168.64.133 () {38 vars in 638 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/js/register.js => generated 5986 bytes in 177 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 16/55] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/slide03.jpg => generated 5998 bytes in 21 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 16/56] 192.168.64.133 () {38 vars in 665 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/logo.png => generated 5989 bytes in 57 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 18/57] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/slide02.jpg => generated 5998 bytes in 17 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 9/58] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/slide04.jpg => generated 5998 bytes in 116 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 19/59] 192.168.64.133 () {38 vars in 667 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/adv01.jpg => generated 5992 bytes in 103 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 19/60] 192.168.64.133 () {38 vars in 667 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/slide.jpg => generated 5992 bytes in 261 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 17/61] 192.168.64.133 () {38 vars in 667 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/adv02.jpg => generated 5992 bytes in 20 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 20/62] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/banner01.jpg => generated 6001 bytes in 25 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 17/63] 192.168.64.133 () {38 vars in 689 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/570f74d8N15a5dd4c_Xq6khDn.jpg => generated 6025 bytes in 38 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 21/64] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/577492c5N7dbed10f.jpg => generated 6001 bytes in 59 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 10/65] 192.168.64.133 () {38 vars in 671 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/578ef80dN7e827310.jpg => generated 6001 bytes in 15 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 18/66] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/57e26b08N03e29d16.jpg => generated 6001 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 18/67] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/57eb584fN4f8b6502.jpg => generated 6001 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 11/68] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:54 2016] GET /static/freshMall/images/banner02.jpg => generated 6001 bytes in 57 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 20/69] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/57d7c4b9N8c2e5e53.jpg => generated 6001 bytes in 92 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 20/70] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:54 2016] GET /static/uploads/57edd963N3b8c1e0c.jpg => generated 6001 bytes in 106 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 13/71] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/579b2695N2b4210bc.jpg => generated 6001 bytes in 44 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 19/72] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57a038ffNbe15b3f7.jpg => generated 6001 bytes in 63 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 13/73] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:55 2016] GET /static/freshMall/images/banner03.jpg => generated 6001 bytes in 105 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 21/74] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/574cea75Nbca8cf5b.jpg => generated 6001 bytes in 49 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4139|app: 0|req: 14/75] 192.168.64.133 () {38 vars in 672 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57bebf1cN32caf6d5.jpg => generated 6001 bytes in 44 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 20/76] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/571888c6N83029e68.jpg => generated 6001 bytes in 51 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 22/77] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/5812be59Nf418cc3d.jpg => generated 6001 bytes in 31 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4139|app: 0|req: 15/78] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/58098760N7773e25e.jpg => generated 6001 bytes in 27 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 23/79] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/freshMall/images/banner04.jpg => generated 6001 bytes in 64 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 23/80] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57df9360N8df45ecb.jpg => generated 6001 bytes in 55 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 24/81] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/freshMall/images/banner05.jpg => generated 6001 bytes in 22 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 21/82] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/55ef93dfN5961a3c9.jpg => generated 6001 bytes in 23 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 22/83] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57136e73N70771e15.jpg => generated 6001 bytes in 70 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 24/84] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/56f4be09N30c89042.jpg => generated 6001 bytes in 92 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4141|app: 0|req: 26/85] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/575bf3f2Nc69dc64f.jpg => generated 6001 bytes in 107 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4141|app: 0|req: 26/86] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/5703dabaNf8692f7e.jpg => generated 6001 bytes in 163 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 24/87] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/freshMall/images/banner06.jpg => generated 6001 bytes in 70 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4142|app: 0|req: 24/88] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57ec4f0bNb6e16bc6.jpg => generated 6001 bytes in 72 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 4140|app: 0|req: 25/89] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/581070a4Nd0c26012.jpg => generated 6001 bytes in 34 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4142|app: 0|req: 24/90] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57d000b9N8c589f4c.jpg => generated 6001 bytes in 128 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 4140|app: 0|req: 26/91] 192.168.64.133 () {38 vars in 673 bytes} [Mon Nov  7 21:34:55 2016] GET /static/uploads/57c954b1N4c00ade1.jpg => generated 6001 bytes in 51 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+gateway "uWSGI http 1" has been buried (pid: 4143)
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 4139)...
+Gracefully killing worker 3 (pid: 4141)...
+Gracefully killing worker 2 (pid: 4140)...
+Gracefully killing worker 4 (pid: 4142)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:42482)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 22:19:54 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x22c6b00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x22c6b00 pid: 4135 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 4135)
+spawned uWSGI worker 1 (pid: 5192, cores: 2)
+spawned uWSGI worker 2 (pid: 5193, cores: 2)
+spawned uWSGI worker 3 (pid: 5194, cores: 2)
+spawned uWSGI worker 4 (pid: 5195, cores: 2)
+...gracefully killing workers...
+Gracefully killing worker 2 (pid: 5193)...
+Gracefully killing worker 1 (pid: 5192)...
+Gracefully killing worker 3 (pid: 5194)...
+Gracefully killing worker 4 (pid: 5195)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (192.168.64.133:8080)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 22:33:54 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.64.133:8888 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1a50b00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1a50b00 pid: 4135 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 4135)
+spawned uWSGI worker 1 (pid: 5321, cores: 2)
+spawned uWSGI worker 2 (pid: 5322, cores: 2)
+spawned uWSGI worker 3 (pid: 5323, cores: 2)
+spawned uWSGI worker 4 (pid: 5324, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+...brutally killing workers...
+Gracefully killing worker 4 (pid: 5324)...
+Gracefully killing worker 3 (pid: 5323)...
+Gracefully killing worker 1 (pid: 5321)...
+worker 1 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 2 buried after 2 seconds
+binary reloading uWSGI...
+chdir() to /home/python/Desktop/shop
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (192.168.64.133:8888)
+running /home/python/.virtualenvs/django_py2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 22:40:59 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 192.168.64.133:8888 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1994690
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1994690 pid: 4135 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 4135)
+spawned uWSGI worker 1 (pid: 5666, cores: 2)
+spawned uWSGI worker 2 (pid: 5667, cores: 2)
+spawned uWSGI worker 3 (pid: 5668, cores: 2)
+spawned uWSGI worker 4 (pid: 5669, cores: 2)
+*** Starting uWSGI 2.0.14 (64bit) on [Mon Nov  7 23:01:02 2016] ***
+compiled with version: 5.4.0 20160609 on 28 October 2016 17:10:20
+os: Linux-4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/Desktop/shop
+writing pidfile to uwsgi.pid
+detected binary path: /home/python/.virtualenvs/django_py2/bin/uwsgi
+chdir() to /home/python/Desktop/shop
+your processes number limit is 7779
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 192.168.64.133:8080 fd 3
+Python version: 2.7.12 (default, Jul  1 2016, 15:12:24)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1a89d50
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415360 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1a89d50 pid: 3221 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3221)
+spawned uWSGI worker 1 (pid: 3232, cores: 2)
+spawned uWSGI worker 2 (pid: 3233, cores: 2)
+spawned uWSGI worker 3 (pid: 3234, cores: 2)
+spawned uWSGI worker 4 (pid: 3236, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 3234|app: 0|req: 1/1] 192.168.64.133 () {38 vars in 641 bytes} [Mon Nov  7 23:07:49 2016] GET / => generated 12021 bytes in 1463 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 3232|app: 0|req: 1/2] 192.168.64.133 () {38 vars in 595 bytes} [Mon Nov  7 23:07:52 2016] GET /favicon.ico => generated 5921 bytes in 624 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+default
+[pid: 3232|app: 0|req: 2/3] 192.168.64.133 () {40 vars in 708 bytes} [Mon Nov  7 23:08:00 2016] GET /list/?classId=1 => generated 6692 bytes in 173 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 3234|app: 0|req: 2/4] 192.168.64.133 () {40 vars in 704 bytes} [Mon Nov  7 23:08:14 2016] GET /cart/ => generated 3040 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3232|app: 0|req: 3/5] 192.168.64.133 () {40 vars in 720 bytes} [Mon Nov  7 23:08:16 2016] GET /user_center_order/ => generated 2066 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3234|app: 0|req: 3/6] 192.168.64.133 () {38 vars in 641 bytes} [Tue Nov  8 08:45:01 2016] GET / => generated 12021 bytes in 283 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 3234|app: 0|req: 4/7] 192.168.64.133 () {40 vars in 714 bytes} [Tue Nov  8 08:45:16 2016] GET /detail/?goodsId=14 => generated 13032 bytes in 91 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3234|app: 0|req: 6/8] 192.168.64.133 () {40 vars in 721 bytes} [Tue Nov  8 08:45:21 2016] GET /place_order/ => generated 2066 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3234|app: 0|req: 6/9] 192.168.64.133 () {46 vars in 831 bytes} [Tue Nov  8 08:45:21 2016] POST /immediateBuy/ => generated 9519 bytes in 497 msecs (HTTP/1.1 500) 3 headers in 107 bytes (1 switches on core 1)
+这是增加购物
+[pid: 3234|app: 0|req: 7/10] 192.168.64.133 () {46 vars in 821 bytes} [Tue Nov  8 08:45:28 2016] POST /addCart/ => generated 9489 bytes in 49 msecs (HTTP/1.1 500) 3 headers in 107 bytes (1 switches on core 0)
+[pid: 3236|app: 0|req: 1/11] 192.168.64.133 () {40 vars in 731 bytes} [Tue Nov  8 08:45:34 2016] GET /user_center_info/ => generated 2066 bytes in 696 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 3234|app: 0|req: 8/12] 192.168.64.133 () {40 vars in 709 bytes} [Tue Nov  8 08:45:39 2016] GET /login/ => generated 2066 bytes in 2 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 3236|app: 0|req: 2/13] 192.168.64.133 () {48 vars in 885 bytes} [Tue Nov  8 08:45:45 2016] POST /loginHandle/ => generated 2177 bytes in 43 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 3234|app: 0|req: 9/14] 192.168.64.133 () {48 vars in 891 bytes} [Tue Nov  8 08:45:55 2016] POST /loginHandle/ => generated 2177 bytes in 14 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 3236|app: 0|req: 3/15] 192.168.64.133 () {40 vars in 709 bytes} [Tue Nov  8 08:45:59 2016] GET /register/ => generated 2521 bytes in 7 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+lixianzhu
+[pid: 3234|app: 0|req: 10/16] 192.168.64.133 () {46 vars in 814 bytes} [Tue Nov  8 08:46:12 2016] POST /testform/ => generated 14 bytes in 18 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
+lixianzhu
+[pid: 3232|app: 0|req: 4/17] 192.168.64.133 () {46 vars in 814 bytes} [Tue Nov  8 08:46:16 2016] POST /testform/ => generated 14 bytes in 132 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 1)
