@@ -267,10 +267,10 @@ def cartHandle(request):
 
     # 长度.用于遍历
     g_len = len(gId)
-
+# 这里对查询再次作下限制 结算只修改在购物车里 没有被结算的 如果结算的 将不再修改,这是修改上次bug 产生的新的bug
     for i in range(g_len):
         shopinfo = ShoppingCart.objects.filter(
-            goodsId=gId[i]).filter(userId=perID)
+            goodsId=gId[i]).filter(userId=perID).filter(isSettle=False)
         for temp in shopinfo:
 
             price = temp.goodsId.goodsPrice
