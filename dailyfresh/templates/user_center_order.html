@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-用户中心{% endblock %}
+
+{% block search_bar %}
+	<div class="search_bar clearfix">
+		<a href="/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+		<div class="search_con fr">
+			<form action="/goods/search" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+		</div>		
+	</div>
+{% endblock %}
+
+{% block body %}
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="/profile">· 个人信息</a></li>
+				<li><a href="/order/1" class="active">· 全部订单</a></li>
+				<li><a href="/address">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<h3 class="common_title2">全部订单</h3>
+				{% for item in order_li %}
+				<ul class="order_list_th w978 clearfix">
+					<li class="col01">{{item.ctime}}</li>
+					<li class="col02">订单号：{{item.id}}</li>
+					<li class="col02 stress">{{item.status}}</li>		
+				</ul>
+
+				<table class="order_list_table w980">
+					<tbody>
+						<tr>
+							<td width="55%">
+								{% for goods in item.goods_li %}
+								<ul class="order_goods_list clearfix">					
+									<li class="col01"><img src="{% static 'res/' %}{{goods.img}}"></li>
+									<li class="col02">{{goods.goods_name}}<em>{{goods.price}}/{{goods.goods_unit}}g</em></li>	
+									<li class="col03">{{goods.count}}</li>
+									<li class="col04">{{goods.total}}元</li>	
+								</ul>
+								{% endfor %}
+							</td>
+							<td width="15%">{{item.total}}元<br/>（含运费{{item.ex_price}}元）</td>
+							<td width="15%">{{item.status}}</td>
+							<td width="15%"><a href="javascript:;" order_id={{item.id}} order_status={{item.order_status}} class="oper_btn">
+								{% if 1 == item.order_status %}
+									去付款
+								{% elif 5 == item.order_status %}
+									去评价
+								{% elif 6 == item.order_status %}
+									已完成
+								{% endif %}
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+				{% endfor %}
+
+				<div class="pagenation">
+				{% if pre_page %}
+					<a href="/order/{{pre_page}}"><上一页</a>
+				{% endif %}
+				{% for p in pages %}
+					<a href="/order/{{p}}" {% if p == active_page %}class="active"{% endif %}>{{p}}</a>
+				{% endfor %}
+				{% if next_page %}
+					<a href="/order/{{next_page}}">下一页></a>
+				{% endif %}
+				</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block bottom_files %}
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.2.js' %}"></script>
+	<script type="text/javascript">
+		$('.oper_btn').click(function() {
+			var order_id = $(this).attr("order_id");
+			var order_status = $(this).attr("order_status");
+			order_status = parseInt(order_status);
+			if (1 == order_status) {
+				$.post('/order/finish', {order_id:order_id}, function(data){
+					window.location.reload();
+				});
+			} else if (5 == order_status) {
+				window.location.href = ("/order/comment?o=" + order_id);
+			} 
+		});
+	</script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-搜索结果{% endblock %}
+
+{% block search_bar %}
+    <div class="search_bar clearfix">
+        <a href="/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;搜索结果</div>
+        <div class="search_con fr">
+            <form action="/goods/search" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+        </div>      
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="navbar_con">
+        <div class="navbar clearfix">
+            <div class="subnav_con fl">
+                <h1>全部商品分类</h1> 
+                <span></span>           
+                <ul class="subnav">
+                    <li><a href="/goods/list/1/1" class="fruit">新鲜水果</a></li>
+                    <li><a href="/goods/list/2/1" class="seafood">海鲜水产</a></li>
+                    <li><a href="/goods/list/3/1" class="meet">猪牛羊肉</a></li>
+                    <li><a href="/goods/list/4/1" class="egg">禽类蛋品</a></li>
+                    <li><a href="/goods/list/5/1" class="vegetables">新鲜蔬菜</a></li>
+                    <li><a href="/goods/list/6/1" class="ice">速冻食品</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_wrap clearfix">
+        <ul class="goods_type_list clearfix">
+        {% for result in  page_obj.object_list %}
+            <li>
+                <a href="/goods/detail/{{result.object.id}}"><img src="{% static 'res/' %}{{result.object.img}}"></a>
+                <h4><a href="/goods/detail/{{result.object.id}}">{{result.object.goods_name}}</a></h4>
+                <div class="operate">
+                    <span class="prize">￥{{result.object.goods_price|floatformat:2}}</span>
+                    <span class="unit">{{result.object.price|floatformat:2}}/{{result.object.goods_unit}}g</span>
+                </div>
+            </li>
+        {% empty %}
+            <p>没有找到您要查询的商品。</p> 
+        {% endfor %}
+        </ul>
+
+        {% if page_obj.has_previous or page_obj.has_next %}
+        <div class="pagenation">
+            {% if page_obj.has_previous %}<a href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">{% endif %}<上一页{% if page_obj.has_previous %}</a>{% endif %}
+            |
+            {% if page_obj.has_next %}<a href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">{% endif %}下一页>{% if page_obj.has_next %}</a>{% endif %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

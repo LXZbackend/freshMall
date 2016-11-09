@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-用户中心{% endblock %}
+
+{% block search_bar %}
+    <div class="search_bar clearfix">
+        <a href="/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+        <div class="search_con fr">
+            <form action="/goods/search" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+        </div>      
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="main_con clearfix">
+        <div class="left_menu_con clearfix">
+            <h3>用户中心</h3>
+            <ul>
+                <li><a href="/profile">· 个人信息</a></li>
+                <li><a href="/order/1" class="active">· 全部订单</a></li>
+                <li><a href="/address">· 收货地址</a></li>
+            </ul>
+        </div>
+        <div class="right_content clearfix">
+            <h3 class="common_title2">订单评价</h3>
+            <ul class="order_list_th w978 clearfix">
+                <li class="col01">{{item.ctime}}</li>
+                <li class="col02">订单号：{{item.id}}</li>
+                <li class="col02 stress">{{item.status}}</li>       
+            </ul>
+            <form method="post">
+                <input type="hidden" name="order_id" value="{{item.id}}">
+                <input type="hidden" name="goods_count" value="{{goods_count}}">
+                {% for goods in item.goods_li %}
+                <table class="order_list_table w980">
+                    <tbody>
+                        <tr>
+                            <td width="60%">
+                                <ul class="order_goods_list clearfix">                  
+                                    <li class="col01"><img src="{% static 'res/' %}{{goods.img}}"></li>
+                                    <li class="col02">{{goods.goods_name}}<em>{{goods.price}}/{{goods.goods_unit}}g</em></li>   
+                                    <li class="col03">{{goods.count}}</li>
+                                    <li class="col04">{{goods.total}}元</li> 
+                                </ul>
+                            </td>
+                            <td width="20%">{{item.total}}元<br/>（含运费{{item.ex_price}}元）</td>
+                            <td width="20%">{{item.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="site_con">
+                    <input type="hidden" name="goods_id_{{forloop.counter}}" value="{{goods.id}}">
+                    <div class="form_group form_group2">
+                        <label>评价内容：</label>
+                        <textarea class="site_area" name="content_{{forloop.counter}}"></textarea>
+                    </div>
+                </div>
+                {% endfor %}
+                <input type="submit" name="" value="提交" class="info_submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

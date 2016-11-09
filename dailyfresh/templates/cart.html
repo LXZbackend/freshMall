@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-购物车{% endblock %}
+
+{% block search_bar %}
+	<div class="search_bar clearfix">
+		<a href="/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
+		<div class="search_con fr">
+			<form action="/goods/search" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+		</div>		
+	</div>
+{% endblock %}
+
+{% block body %}
+	<div class="total_count">全部商品<em>{{count}}</em>件</div>	
+	<ul class="cart_list_th clearfix">
+		<li class="col01">商品名称</li>
+		<li class="col02">商品单位</li>
+		<li class="col03">商品价格</li>
+		<li class="col04">数量</li>
+		<li class="col05">小计</li>
+		<li class="col06">操作</li>
+	</ul>
+	{% for item in cart %}
+	<ul class="cart_list_td clearfix">
+		<li class="col01"><input type="checkbox" cart_id={{item.id}} goods_id={{item.goods.id}} class="cart_select" checked></li>
+		<li class="col02"><img src="{% static 'res/' %}{{item.img}}"></li>
+		<li class="col03">{{item.goods.goods_name}}<br><em>{{item.price}}/{{item.goods.goods_unit}}g</em></li>
+		<li class="col04">{{item.goods.goods_unit}}g</li>
+		<li class="col05"><span id="goods_price_{{item.id}}">{{item.price}}</span>元</li>
+		<li class="col06">
+			<div class="num_add">
+				<a href="javascript:;" cart_id={{item.id}} class="add fl">+</a>
+				<input type="text" class="num_show fl" cart_id={{item.id}} id="goods_num_{{item.id}}" value="{{item.goods_num}}">	
+				<a href="javascript:;" cart_id={{item.id}} class="minus fl">-</a>	
+			</div>
+		</li>
+		<li class="col07"><span id="goods_amount_{{item.id}}">{{item.total}}</span>元</li>
+		<li class="col08"><a href="javascript:;" class="del_btn" cart_id="{{item.id}}">删除</a></li>
+	</ul>
+	{% endfor %}
+	<ul class="settlements">
+		<li class="col01"><input type="checkbox" id="select_all" checked></li>
+		<li class="col02">全选</li>
+		<li class="col03">合计(不含运费)：<span>¥</span><em id="total_amount">{{total}}</em><br>共计<b id="total_count">{{count}}</b>件商品</li>
+		<li class="col04"><a href="javascript:;" id="commit_btn">去结算</a></li>
+	</ul>
+
+{% endblock %}
+
+{% block bottom_files %}
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.2.js' %}"></script>
+	<script type="text/javascript">
+		// 更新页面合计信息
+		function freshOrderCommitInfo() {
+			var selected_carts = $(":checkbox:checked.cart_select");
+			var total_amount = 0;
+			var total_count = 0;
+			for (var i=0; i<selected_carts.length; i++) {
+				var cart_id = $(selected_carts[i]).attr("cart_id");
+				var goods_amount = $("#goods_amount_" + cart_id).html();
+				var goods_count = $("#goods_num_" + cart_id).val();
+				total_count += parseInt(goods_count);
+				total_amount += parseFloat(goods_amount);
+			}	
+			$("#total_amount").html(total_amount.toFixed(2));
+			$("#total_count").html(total_count);
+		}
+
+		// 更新页面顶端全部商品数量
+		function freshTotalGoodsCount() {
+			var carts = $(":checkbox.cart_select");
+			var total_count = 0;
+			for (var i=0; i<carts.length; i++){
+				var cart_id = $(carts[i]).attr("cart_id");
+				var goods_count = $("#goods_num_" + cart_id).val();
+				total_count += parseInt(goods_count);
+			}
+			$(".total_count>em").html(total_count);
+		}
+
+		// 更新后端购物车信息
+		function updateRemoteCartInfo(cart_id, goods_count) {
+			$.post("/cart/update", {"cart_id":cart_id, "goods_count":goods_count}, function(data){
+				if(2 == data.code) {
+					alert("库存不足，正在补货中！");
+				} else {
+					var goods_price = $("#goods_price_" + cart_id).html();
+					var goods_amount = parseFloat(goods_price) * goods_count
+					$("#goods_amount_" + cart_id).html(goods_amount.toFixed(2));
+					freshOrderCommitInfo();
+				}
+			});
+		}
+
+		$(".add").click(function(){
+			var cart_id = $(this).attr("cart_id");
+			var goods_num = $("#goods_num_" + cart_id).val();
+			goods_num = parseInt(goods_num);
+			goods_num += 1;
+			$("#goods_num_" + cart_id).val(goods_num);
+			updateRemoteCartInfo(cart_id, goods_num);
+			freshTotalGoodsCount();
+		});
+
+		$(".minus").click(function(){
+			var cart_id = $(this).attr("cart_id");
+			var goods_num = $("#goods_num_" + cart_id).val();
+			goods_num = parseInt(goods_num);
+			goods_num -= 1;
+			if (goods_num < 1) goods_num = 1;
+			$("#goods_num_" + cart_id).val(goods_num);
+			updateRemoteCartInfo(cart_id, goods_num);
+			freshTotalGoodsCount();
+		});
+
+		$("input.num_show").blur(function(){
+			var cart_id = $(this).attr("cart_id");
+			var goods_num = $(this).val();
+			goods_num = parseInt(goods_num);
+			updateRemoteCartInfo(cart_id, goods_num);
+			freshTotalGoodsCount();
+		});
+
+		$(".del_btn").click(function(){
+			var cart_id = $(this).attr("cart_id");
+			$.post('/cart/delete', {cart_id:cart_id}, function(){
+				window.location.href = '/cart';
+			});
+		})
+		$(".cart_select").click(function(){
+			if($(this).prop("checked") == false) {
+				$("#select_all").prop("checked", false);
+			}
+			else {
+				var chks = $(".cart_select");
+				var i = 0;
+				for (i=0; i<chks.length; i++) {
+					if($(chks[i]).prop("checked")==false) break;
+				}
+				if (i == chks.length) {
+					$("#select_all").prop("checked", true);
+				}
+			}
+			freshOrderCommitInfo();
+		});
+		$("#select_all").click(function(){
+			if($(this).prop("checked") == true) {
+				$(".cart_select").prop("checked", true);
+			} else {
+				$(".cart_select").prop("checked", false);
+			}
+			freshOrderCommitInfo();
+		});
+		$("#commit_btn").click(function(){
+			var selected_carts = $(":checkbox:checked.cart_select");
+			if (0 == selected_carts.length) {
+				alert("请先勾选要结算的商品！");
+				return;
+			}
+			var commit_order_url = "/order/commit?g=";
+			var cart_params = "c=";
+			for (var i=0; i<selected_carts.length; i++) {
+				var goods_id = $(selected_carts[i]).attr("goods_id");
+				var cart_id = $(selected_carts[i]).attr("cart_id");
+				cart_params += cart_id;
+				cart_params += ",";
+				commit_order_url += goods_id;
+				commit_order_url += "@"
+				commit_order_url += $("#goods_num_"+cart_id).val();
+				commit_order_url += ","
+			}
+			commit_order_url = commit_order_url.substr(0, commit_order_url.length-1);
+			cart_params = cart_params.substr(0, cart_params.length-1);
+			commit_order_url += "&";
+			commit_order_url += cart_params;
+			window.location.href = commit_order_url;
+		})
+	</script>
+{% endblock %}

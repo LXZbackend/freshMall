@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-用户中心{% endblock %}
+
+{% block search_bar %}
+	<div class="search_bar clearfix">
+		<a href="/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+		<div class="search_con fr">
+			<form action="/goods/search" method="get">
+            <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+            <input type="submit" class="input_btn fr" value="搜索">
+            </form>
+		</div>		
+	</div>
+{% endblock %}
+
+{% block body %}
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="/profile" class="active">· 个人信息</a></li>
+				<li><a href="/order/1">· 全部订单</a></li>
+				<li><a href="/address">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<div class="info_con clearfix">
+				<h3 class="common_title2">基本信息</h3>
+						<ul class="user_info_list">
+							<li><span>用户名：</span>{{user.username}}</li>
+							<li><span>联系方式：</span>{{address.recipient_phone}}</li>
+							<li><span>联系地址：</span>{{address.addr_detail}}</li>			
+						</ul>
+				</div>
+				
+				<h3 class="common_title2">最近浏览</h3>
+				<div class="has_view_list">
+					<ul class="goods_type_list clearfix">
+					{% for goods in history_goods_li %}
+					<li>
+						<a href="/goods/detail/{{goods.id}}"><img src="{% static 'res/' %}{{goods.img}}"></a>
+						<h4><a href="/goods/detail/{{goods.id}}">{{goods.goods_name}}</a></h4>
+						<div class="operate">
+							<span class="prize">￥{{goods.price}}</span>
+							<span class="unit">{{goods.price}}/{{goods.goods_unit}}g</span>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}

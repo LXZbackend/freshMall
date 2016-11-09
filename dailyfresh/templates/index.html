@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-首页{% endblock %}
+
+{% block top_files %}
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/slide.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="navbar_con">
+		<div class="navbar">
+			<h1 class="fl">全部商品分类</h1>
+		</div>
+	</div>
+
+	<div class="center_con clearfix">
+		<ul class="subnav fl">
+			<li><a href="#model01" class="fruit">新鲜水果</a></li>
+			<li><a href="#model02" class="seafood">海鲜水产</a></li>
+			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
+			<li><a href="#model04" class="egg">禽类蛋品</a></li>
+			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
+			<li><a href="#model06" class="ice">速冻食品</a></li>
+		</ul>
+		<div class="slide fl">
+			<ul class="slide_pics">
+				<li><img src="{% static 'images/slide.jpg' %}" alt="幻灯片"></li>
+				<li><img src="{% static 'images/slide02.jpg' %}" alt="幻灯片"></li>
+				<li><img src="{% static 'images/slide03.jpg' %}" alt="幻灯片"></li>
+				<li><img src="{% static 'images/slide04.jpg' %}" alt="幻灯片"></li>
+			</ul>
+			<div class="prev"></div>
+			<div class="next"></div>
+			<ul class="points"></ul>
+		</div>
+		<div class="adv fl">
+			<a href="#"><img src="{% static 'images/adv01.jpg' %}"></a>
+			<a href="#"><img src="{% static 'images/adv02.jpg' %}"></a>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model01">新鲜水果</h3>
+			<a href="/goods/list/1/1" class="goods_more fr" id="fruit_more">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner01.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in fruits %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model02">海鲜水产</h3>
+			<a href="/goods/list/2/1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner02.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in seafood %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model03">猪牛羊肉</h3>
+			<a href="/goods/list/3/1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner03.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in meat %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model04">禽类蛋品</h3>
+			<a href="/goods/list/4/1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner04.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in eggs %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model05">新鲜蔬菜</h3>
+			<a href="/goods/list/5/1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner05.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in vegetables %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model06">速冻食品</h3>
+			<a href="/goods/list/6/1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="{% static 'images/banner06.jpg' %}"></div>
+			<ul class="goods_list fl">
+			{% for good in frozen %}
+				<li>
+					<h4><a href="/goods/detail/{{good.id}}">{{good.goods_name}}</a></h4>
+					<a href="/goods/detail/{{good.id}}"><img src="{% static 'res/' %}{{good.img}}"></a>
+					<div class="prize">¥ {{good.price}}</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+
+{% block bottom_files %}
+	<script type="text/javascript" src="{% static 'js/slideshow.js' %}"></script>
+	<script type="text/javascript">
+		//BCSlideshow('focuspic');
+		// var oFruit = document.getElementById('fruit_more');
+		// var oShownum = document.getElementById('show_count');
+
+		// var hasorder = localStorage.getItem('order_finish');
+
+		// if(hasorder)
+		// {
+		// 	oShownum.innerHTML = '2';
+		// }
+
+		// oFruit.onclick = function(){
+		// 	window.location.href = 'list.html';
+		// }
+	</script>
+{% endblock %}

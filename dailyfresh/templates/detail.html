@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}天天生鲜-商品详情{% endblock %}
+
+{% block body %}
+	<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部商品分类</h1>	
+				<span></span>			
+				<ul class="subnav">
+					<li><a href="/goods/list/1/1" class="fruit">新鲜水果</a></li>
+					<li><a href="/goods/list/2/1" class="seafood">海鲜水产</a></li>
+					<li><a href="/goods/list/3/1" class="meet">猪牛羊肉</a></li>
+					<li><a href="/goods/list/4/1" class="egg">禽类蛋品</a></li>
+					<li><a href="/goods/list/5/1" class="vegetables">新鲜蔬菜</a></li>
+					<li><a href="/goods/list/6/1" class="ice">速冻食品</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="breadcrumb">
+		<a href="/">全部分类</a>
+		<span>></span>
+		<a href="/goods/list/{{goods.goods_type_id}}/1">{{goods.type_name}}</a>
+		<span>></span>
+		<a href="#">商品详情</a>
+	</div>
+
+	<div class="goods_detail_con clearfix">
+		<div class="goods_detail_pic fl"><img src="{% static 'res/' %}{{goods.img}}"></div>
+
+		<div class="goods_detail_list fr">
+			<h3>{{goods.goods_name}}</h3>
+			<p>{{goods.goods_subtitle}}</p>
+			<div class="prize_bar">
+				<span class="show_pirze">¥<em>{{goods.price}}</em></span>
+				<span class="show_unit">单  位：{{goods.goods_unit}}g</span>
+			</div>
+			<div class="goods_num clearfix">
+				<div class="num_name fl">数 量：</div>
+				<div class="num_add fl">
+					<input type="text" class="num_show fl" id="num_show" value="1">
+					<a href="javascript:;" class="add fr" id="add">+</a>
+					<a href="javascript:;" class="minus fr" id="minus">-</a>	
+				</div> 
+			</div>
+			<div class="total">总价：<em>{{goods.price}}</em>元</div>
+			<div class="operate_btn">
+				<a href="javascript:;" class="buy_btn" id="buy_btn">立即购买</a>
+				<a href="javascript:;" class="add_cart" goods_id="{{goods.id}}" id="add_cart">加入购物车</a>				
+			</div>
+		</div>
+	</div>
+
+	<div class="main_wrap clearfix">
+		<div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>新品推荐</h3>
+				<ul>
+					{% for goods in new_goods_li %}
+					<li>
+						<a href="/goods/detail/{{goods.id}}"><img src="{% static 'res/' %}{{goods.img}}"></a>
+						<h4><a href="/goods/detail/{{goods.id}}">{{goods.goods_name}}</a></h4>
+						<div class="prize">￥{{goods.price}}</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<div class="r_wrap fr clearfix">
+			<ul class="detail_tab clearfix">
+				<li id="tag_detail" class="active">商品介绍</li>
+				<li id="tag_comment">评论</li>
+			</ul>
+
+			<div class="tab_content" id="tab_detail">
+				<dl>
+					<dt>商品详情：</dt>
+					<dd>{{goods.goods_info}}</dd>
+				</dl>
+			</div>
+
+			<div class="tab_content" id="tab_comment" style="display: none;">
+				{% for comment in comments %}
+				<dl>
+					<dd>客户：{{comment.user}}&nbsp;&nbsp;&nbsp;时间：{{comment.ctime}}</dd>
+					<dt>{{comment.comment}}</dt>
+				</dl>
+				<hr/>
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<div class="add_jump"></div>
+{% endblock %}}
+
+{% block bottom_files %}
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.2.js' %}"></script>
+	<script type="text/javascript">
+		$("#tag_detail").click(function(){
+			$("#tag_comment").removeClass("active");
+			$(this).addClass("active");
+			$("#tab_comment").hide();
+			$("#tab_detail").show();
+		});
+
+		$("#tag_comment").click(function(){
+			$("#tag_detail").removeClass("active");
+			$(this).addClass("active");
+			$("#tab_detail").hide();
+			$("#tab_comment").show();
+		});
+
+		$("#buy_btn").click(function(){
+			var count = $("#num_show").val();
+			window.location.href = '/order/commit?g={{goods.id}}@' + count;
+		});
+
+		var $add_x = $('#add_cart').offset().top;
+		var $add_y = $('#add_cart').offset().left;
+
+		var $to_x = $('#show_count').offset().top;
+		var $to_y = $('#show_count').offset().left;
+
+		$(".add_jump").css({'left':$add_y+80,'top':$add_x+10,'display':'block'})
+		$('#add_cart').click(function(){
+			$.post('/cart/add', {goods_id:$("#add_cart").attr("goods_id"), goods_num:$("#num_show").val()}, function(data){
+				if (2 == data.code) {
+					alert("库存不足，正在补货中！");
+				} else {
+					$(".add_jump").stop().animate({
+						'left': $to_y+7,
+						'top': $to_x+7},
+						"fast", function() {
+							$(".add_jump").fadeOut('fast',function(){
+								var cart_count = $('#show_count').html();
+								cart_count = parseInt(cart_count);
+								var num_show = $("#num_show").val();
+								num_show = parseInt(num_show);
+								cart_count += num_show;
+								$('#show_count').html(cart_count);
+							});
+						});
+				}
+			});
+		});
+		$("#add").click(function(){
+			var num_show = $("#num_show").val();
+			num_show = parseInt(num_show)
+			num_show += 1;
+			$("#num_show").val(num_show);
+			var price = $(".show_pirze>em").html()
+			price = parseFloat(price);
+			var total = price * num_show;
+			$(".total>em").html(total.toFixed(2));
+		});
+		$("#minus").click(function(){
+			var num_show = $("#num_show").val();
+			num_show = parseInt(num_show)
+			num_show -= 1;
+			if (num_show < 1){
+				num_show = 1;
+			}
+			$("#num_show").val(num_show);
+			var price = $(".show_pirze>em").html()
+			price = parseFloat(price);
+			var total = price * num_show;
+			$(".total>em").html(total.toFixed(2));
+		});
+	</script>
+{% endblock %}
